@@ -1,11 +1,4 @@
-Perfecto 😊
-Te dejo un **README.md profesional, claro y docente**, alineado con el manual de **UF1841 – Lenguajes de Marcas (HTML/CSS)** que has creado y con tu enfoque didáctico.
 
-Puedes **copiar y pegar tal cual** en tu repositorio.
-
----
-
-````markdown
 # 📘 Manual UF1841 · Lenguajes de Marcas (HTML / CSS)
 
 Este repositorio contiene el **manual didáctico completo del módulo UF1841 – Lenguajes de Marcas**, orientado a alumnado de **Formación Profesional** y a personas que se inician en el desarrollo web.
