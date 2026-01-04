@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function TemaImagenesPorURL() {
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function TemaImagenesPorURL() {
       <section className="estructura-formativa" id="ud02-imagenes-url">
         {/* HERO */}
         <header className="doc-hero" id="intro-imagenes-url">
-          <p className="doc-kicker">UD02 · Multimedia</p>
+          <p className="doc-kicker">Tema 12 · Imágenes por URL (CDN, hosting y random)</p>
           <h1>Insertar imágenes desde URL: CDN, hosting (Cloudinary/Imgur/Uploadcare) y random</h1>
           <p className="doc-lead">
             En la vida real, la mayoría de imágenes de una web no “viven” dentro del proyecto:

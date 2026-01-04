@@ -1,8 +1,33 @@
 // Tema0.jsx
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 export default function Tema0() {
+  // Función para manejar clicks en enlaces del índice
+  const handleIndexClick = (event, targetId) => {
+    event.preventDefault();
+    
+    // Buscar el elemento objetivo
+    const target = document.getElementById(targetId);
+    if (target) {
+      // Buscar el details padre más cercano y abrirlo
+      const detailsParent = target.closest('details');
+      if (detailsParent) {
+        detailsParent.open = true;
+      }
+      
+      // Hacer scroll al elemento después de un pequeño delay
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
   useEffect(() => {
+    // Título de la página
+    document.title = "UF1841 · Tema 0 · VS Code";
+    
     const root = document.getElementById("test0");
     if (!root) return;
 
@@ -110,8 +135,8 @@ export default function Tema0() {
         <h1>Visual Studio Code: el entorno de trabajo que vas a usar como profesional</h1>
         <p className="doc-lead">
           Antes de escribir código, hay que dominar el “taller”: saber qué es un entorno de desarrollo, cómo se organiza
-          un proyecto, dónde mirar cuando algo falla y cómo trabajar con orden. Aquí vas a aprender VS Code desde la
-          lógica (no desde “botoncitos”).
+          un proyecto, dónde mirar cuando algo falla y cómo trabajar con orden. Vamos a intentar entender la lógica de VScode como nuestro 
+          IDE de cabecera.
         </p>
 
         <div className="callout tip">
@@ -130,37 +155,61 @@ export default function Tema0() {
         <h2>Índice</h2>
         <ol>
           <li>
-            <a href="#que-es">Qué es VS Code y por qué lo usamos</a>
+            <a href="#que-es" onClick={(e) => handleIndexClick(e, 'que-es')}>Qué es VS Code y por qué lo usamos</a>
           </li>
           <li>
-            <a href="#ide">Qué es un IDE y cómo se relaciona con VS Code</a>
+            <a href="#ide" onClick={(e) => handleIndexClick(e, 'ide')}>Qué es un IDE y cómo se relaciona con VS Code</a>
           </li>
           <li>
-            <a href="#comparativa">Comparativa con otros IDE (NetBeans, Eclipse, IntelliJ)</a>
+            <a href="#comparativa" onClick={(e) => handleIndexClick(e, 'comparativa')}>Comparativa con otros IDE (NetBeans, Eclipse, IntelliJ)</a>
           </li>
           <li>
-            <a href="#instalacion">Instalación paso a paso</a>
+            <a href="#instalacion" onClick={(e) => handleIndexClick(e, 'instalacion')}>Instalación paso a paso</a>
           </li>
           <li>
-            <a href="#extensiones">Extensiones recomendadas</a>
+            <a href="#extensiones" onClick={(e) => handleIndexClick(e, 'extensiones')}>Extensiones recomendadas</a>
           </li>
           <li>
-            <a href="#interfaz">Interfaz y flujo de trabajo</a>
+            <a href="#interfaz" onClick={(e) => handleIndexClick(e, 'interfaz')}>Interfaz y flujo de trabajo</a>
           </li>
           <li>
-            <a href="#atajos">Atajos útiles</a>
+            <a href="#atajos" onClick={(e) => handleIndexClick(e, 'atajos')}>Atajos útiles</a>
           </li>
           <li>
-            <a href="#errores">Errores típicos y cómo salir rápido</a>
+            <a href="#errores" onClick={(e) => handleIndexClick(e, 'errores')}>Errores típicos y cómo salir rápido</a>
           </li>
           <li>
-            <a href="#practica">Práctica guiada (sin programar aún)</a>
+            <a href="#practica" onClick={(e) => handleIndexClick(e, 'practica')}>Práctica guiada (sin programar aún)</a>
           </li>
           <li>
-            <a href="#repaso">Repaso + test</a>
+            <a href="#repaso" onClick={(e) => handleIndexClick(e, 'repaso')}>Repaso + test</a>
           </li>
         </ol>
       </nav>
+      <section id="notepad" className="doc-section">
+        <hr className="separador-verde" />
+        <h2>¿Qué es un bloc de notas y para qué sirve?</h2>
+        <details open className="dd">
+          <summary>¿Por qué no usar un bloc de notas normal?</summary>
+          <div className="dd-body">
+            <p>Usar un bloc de notas el que trae por defecto window o notepad por ejemplo podría ser suficiente para empezar con 
+              HTML y CSS y de hecho suele ser costumbre empezar con el bloc de notas en muchos cursos</p>
+            <p>Sin embargo, un bloc de notas normal no tiene las funcionalidades que un IDE como VS Code nos ofrece y que nos van a facilitar mucho el trabajo.
+            </p>
+            <div className="callout">
+              <strong>Ventajas de usar VS Code sobre un bloc de notas normal:</strong>
+              <ul>
+                <li>Entiende que lo que escribes es código (y te ayuda con sugerencias y avisos).</li>
+                <li>Trabaja por proyectos (carpetas), no por archivos aislados.</li>
+                <li>Incluye paneles de diagnóstico: Problemas, salida, terminal, etc.</li>
+                <li>Puede ampliarse con extensiones cuando aporta valor real.</li>
+              </ul>
+            </div>
+            <p> En este curso dado su corta extensión y sus ambiciosos objetivos vamos a empezar a trabajar directamente con un IDE pues 
+              asi ahorraremos tiempo y disgustos. 😊 </p>
+          </div>
+        </details>
+      </section>
 
       {/* ===================================================== */}
       <section id="que-es" className="doc-section">
@@ -351,7 +400,7 @@ export default function Tema0() {
             </div>
 
             <details className="dd dd-nested">
-              <summary>Lectura “de profe”: qué debes retener</summary>
+              <summary>Resumen</summary>
               <div className="dd-body">
                 <ul>
                   <li>Los IDE clásicos pueden darte mucho… pero también pueden saturar al empezar.</li>
@@ -407,7 +456,7 @@ export default function Tema0() {
               <div className="dd-body">
                 <p>
                   Abre una terminal del sistema y escribe <code>code</code>. Si se abre VS Code, está correcto. Si te
-                  dice que no reconoce el comando, suele faltar esa casilla de PATH.
+                  dice que no reconoce el comando, suele faltar esa casilla de PATH. ¿Sabes abrir un terminal de sistema? 
                 </p>
               </div>
             </details>
@@ -422,14 +471,29 @@ export default function Tema0() {
                 <strong>Tema:</strong> oscuro o claro según comodidad visual.
               </li>
               <li>
-                <strong>Idioma:</strong> puedes instalar el paquete en español desde Extensiones si lo prefieres.
+                <strong>Idioma:</strong> puedes instalar el paquete en español desde Extensiones si lo prefieres.De todas formas,
+                debes acostumbrarte a trabajar en inglés pues la mayoría de recursos y documentación están en ese idioma. De hecho, poco 
+                a poco te derás cuenta que tenerlo traducido entorpece más que facilita. 
+
               </li>
               <li>
                 <strong>Números de línea:</strong> activados (son esenciales para seguir indicaciones y correcciones).
               </li>
               <li>
-                <strong>Auto Save:</strong> opcional; úsalo solo si entiendes cuándo guarda automáticamente.
-              </li>
+  <strong>Auto Save:</strong> guarda los archivos automáticamente sin necesidad de pulsar
+  <kbd>Ctrl + S</kbd>. Es una opción muy útil <strong>si entiendes cuándo se produce el guardado
+  y cómo afecta a tu forma de trabajar</strong>.
+</li>
+<div className="callout tip">
+  <strong>Cuándo se activa el Auto Save:</strong> VS Code no guarda “todo el rato”.
+  El guardado automático se produce cuando ocurre alguno de estos eventos (según la configuración):
+  <ul>
+    <li>Al cambiar de archivo.</li>
+    <li>Al cambiar de ventana (por ejemplo, al ir al navegador).</li>
+    <li>Tras un pequeño retraso de tiempo mientras escribes.</li>
+  </ul>
+</div>
+
             </ul>
 
             <div className="callout tip">
@@ -437,7 +501,124 @@ export default function Tema0() {
               control real.
             </div>
           </div>
+
         </details>
+
+  <details className="dd" open>
+    <summary> 4.5 VS Code instalado vs VS Code en el navegador (vscode.dev)</summary>
+
+    <div className="dd-body">
+      <p>
+        Visual Studio Code puede usarse de dos formas distintas: como aplicación instalada en tu ordenador
+        o directamente desde el navegador mediante <strong>vscode.dev</strong>.
+        Aunque la interfaz es muy similar, <strong>no están pensados para el mismo tipo de trabajo</strong>.
+      </p>
+
+      <div className="callout">
+        <strong>Idea clave:</strong> no es “uno mejor que otro”, sino <em>cuándo</em> usar cada opción.
+      </div>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>1) VS Code instalado en el ordenador</summary>
+
+    <div className="dd-body">
+      <p>
+        Es la forma <strong>principal y profesional</strong> de trabajar. Instalas la aplicación
+        y VS Code tiene acceso completo a tu sistema.
+      </p>
+
+      <h4>Ventajas</h4>
+      <ul>
+        <li>Acceso completo a archivos y carpetas del sistema.</li>
+        <li>Terminal integrada real (Node, npm, git, servidores locales, etc.).</li>
+        <li>Extensiones sin limitaciones.</li>
+        <li>Ideal para proyectos reales y trabajo continuo.</li>
+        <li>No depende de conexión a internet.</li>
+      </ul>
+
+      <h4>Inconvenientes</h4>
+      <ul>
+        <li>Requiere instalación.</li>
+        <li>Necesita algo de configuración inicial.</li>
+        <li>Depende del equipo (no siempre disponible en ordenadores ajenos).</li>
+      </ul>
+
+      <div className="callout tip">
+        <strong>En este curso:</strong> esta es la opción que vamos a usar siempre.
+      </div>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>2) VS Code en el navegador (vscode.dev)</summary>
+
+    <div className="dd-body">
+      <p>
+        <strong>vscode.dev</strong> permite usar una versión de VS Code directamente desde el navegador,
+        sin instalar nada. Funciona como una versión “ligera” del editor.
+      </p>
+
+      <h4>Ventajas</h4>
+      <ul>
+        <li>No requiere instalación.</li>
+        <li>Funciona desde cualquier ordenador con navegador.</li>
+        <li>Útil para revisar o editar archivos rápidamente.</li>
+        <li>Muy cómodo para pequeños cambios o consultas.</li>
+      </ul>
+
+      <h4>Inconvenientes</h4>
+      <ul>
+        <li>Acceso limitado al sistema de archivos.</li>
+        <li>No tiene terminal real del sistema.</li>
+        <li>Muchas extensiones no funcionan o están limitadas.</li>
+        <li>No sirve para ejecutar proyectos completos.</li>
+        <li>Depende de conexión a internet.</li>
+      </ul>
+
+      <div className="callout warn">
+        vscode.dev <strong>no sustituye</strong> al VS Code instalado para aprender desarrollo web de forma seria.
+      </div>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>3) Cuándo usar cada uno (criterio práctico)</summary>
+
+    <div className="dd-body">
+      <ul>
+        <li>
+          <strong>VS Code instalado</strong> → aprender, practicar, programar, hacer proyectos, trabajar en serio.
+        </li>
+        <li>
+          <strong>vscode.dev</strong> → revisar código, hacer cambios rápidos, trabajar desde un equipo que no es tuyo.
+        </li>
+      </ul>
+
+      <div className="callout tip">
+        <strong>Regla mental:</strong> vscode.dev es una libreta de apoyo; VS Code instalado es tu taller de trabajo.
+      </div>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>Idea final para el alumno</summary>
+
+    <div className="dd-body">
+      <p>
+        Para aprender bien, necesitas un entorno que te permita ver errores, usar terminal,
+        ejecutar proyectos y entender qué ocurre “por debajo”.
+      </p>
+
+      <p>
+        Por eso, aunque vscode.dev es útil en situaciones concretas,
+        <strong>el curso se apoya siempre en VS Code instalado</strong>.
+      </p>
+    </div>
+  </details>
+
+
       </section>
 
       {/* ===================================================== */}
@@ -498,6 +679,235 @@ export default function Tema0() {
             </details>
           </div>
         </details>
+        <details className="dd">
+  <summary>Instalar temas en VS Code y ver los que tienes disponibles</summary>
+
+  <div className="dd-body">
+    <p>
+      Los <strong>temas</strong> en Visual Studio Code controlan los colores del editor:
+      fondo, texto, comentarios, errores y resaltado del código.
+      No cambian cómo funciona VS Code, solo <strong>cómo se ve</strong>.
+    </p>
+
+    <div className="callout">
+      <strong>Idea clave:</strong> un buen tema reduce la fatiga visual y te ayuda a detectar errores antes.
+    </div>
+
+    <h4>1) Ver los temas que ya tienes instalados</h4>
+    <p>
+      VS Code incluye varios temas por defecto y además recuerda los que instales.
+      Para verlos todos:
+    </p>
+
+    <ol>
+      <li>Abre la paleta de comandos: <strong>Ctrl + Shift + P</strong>.</li>
+      <li>Escribe <code>Color Theme</code>.</li>
+      <li>Selecciona <strong>Preferences: Color Theme</strong>.</li>
+      <li>Muévete con las flechas para previsualizar los temas en tiempo real.</li>
+      <li>Pulsa <strong>Enter</strong> para aplicar el que quieras.</li>
+    </ol>
+
+    <div className="callout tip">
+      No tengas prisa: cambia de tema y observa cómo se ven comentarios, etiquetas y errores.
+    </div>
+
+    <h4>2) Instalar nuevos temas desde VS Code</h4>
+    <p>
+      Los temas se instalan como una extensión más. El proceso es seguro si eliges bien.
+    </p>
+
+    <ol>
+      <li>Abre <strong>Extensiones</strong> (icono de cuadraditos o <strong>Ctrl + Shift + X</strong>).</li>
+      <li>Escribe en el buscador <code>theme</code> o el nombre del tema.</li>
+      <li>Comprueba autor, valoraciones y número de descargas.</li>
+      <li>Pulsa <strong>Install</strong>.</li>
+      <li>Aplica el tema desde <strong>Preferences: Color Theme</strong>.</li>
+    </ol>
+
+    <div className="callout warn">
+      Evita instalar muchos temas “por probar”. Demasiadas extensiones generan ruido.
+    </div>
+
+    <h4>3) Cambiar de tema rápidamente (atajo útil)</h4>
+    <p>
+      Puedes cambiar de tema en cualquier momento sin entrar en menús:
+    </p>
+
+    <ul>
+      <li><strong>Ctrl + K</strong> y luego <strong>Ctrl + T</strong></li>
+    </ul>
+
+    <div className="callout tip">
+      Úsalo cuando estés cansada de la vista o cambies de entorno (día / noche).
+    </div>
+
+    <h4>4) Recomendación docente</h4>
+    <p>
+      Elige <strong>un tema</strong> y mantente con él un tiempo.
+      Aprenderás más rápido si tu cerebro no tiene que “reaprender” los colores cada día.
+    </p>
+
+    <div className="callout">
+      <strong>Regla del curso:</strong> el tema debe ayudarte a entender el código, no a decorarlo.
+    </div>
+  </div>
+</details>
+
+        <details className="dd">
+  <summary>🎨 Temas más usados en Visual Studio Code (cuál elegir y por qué)</summary>
+  <div className="dd-body">
+    <p>
+      Visual Studio Code incluye varios temas por defecto y permite instalar muchos más.
+      Un <strong>tema</strong> no cambia cómo funciona el editor, pero sí
+      <strong>cómo lees el código</strong>, cómo detectas errores y cuánto te cansa la vista.
+    </p>
+
+    <div className="callout">
+      <strong>Idea clave:</strong> el mejor tema es el que te permite leer con claridad durante
+      más tiempo, no el más llamativo.
+    </div>
+
+    <div className="table-wrap" role="region" aria-label="Tabla de temas más usados en VS Code">
+      <table className="table table-zebra">
+        <thead>
+          <tr>
+            <th>Tema</th>
+            <th>Tipo</th>
+            <th>Ventajas principales</th>
+            <th>Cuándo usarlo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Dark+ (Default Dark)</th>
+            <td>🌙 Oscuro</td>
+            <td>
+              Viene por defecto, contraste equilibrado, no distrae.
+            </td>
+            <td>
+              Primeros pasos, cursos, no complicarse.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Light+ (Default Light)</th>
+            <td>☀️ Claro</td>
+            <td>
+              Muy legible, sensación de “papel”, ideal con luz natural.
+            </td>
+            <td>
+              Aulas luminosas, HTML y lectura prolongada.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">GitHub Theme</th>
+            <td>🌙 / ☀️ Ambos</td>
+            <td>
+              Profesional, colores suaves, excelente equilibrio visual.
+            </td>
+            <td>
+              Estudio serio y trabajo real.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">One Dark Pro</th>
+            <td>🌙 Oscuro</td>
+            <td>
+              Colores bien diferenciados, muy popular en el sector.
+            </td>
+            <td>
+              Programar varias horas seguidas.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Dracula Official</th>
+            <td>🌙 Oscuro</td>
+            <td>
+              Alto contraste, reduce fatiga visual.
+            </td>
+            <td>
+              Jornadas largas, entornos oscuros.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Monokai</th>
+            <td>🌙 Oscuro</td>
+            <td>
+              Colores muy vivos, clásico histórico.
+            </td>
+            <td>
+              Usuarios con experiencia (puede cansar).
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Solarized Dark</th>
+            <td>🌙 Oscuro</td>
+            <td>
+              Contraste suave, menos agresivo.
+            </td>
+            <td>
+              Personas sensibles a colores muy fuertes.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Solarized Light</th>
+            <td>☀️ Claro</td>
+            <td>
+              Elegante y cómodo para leer.
+            </td>
+            <td>
+              Documentación, HTML y CSS.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Nord</th>
+            <td>🌙 Oscuro</td>
+            <td>
+              Tonos fríos, ambiente relajado.
+            </td>
+            <td>
+              Estudio tranquilo, poca distracción.
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Ayu (Dark / Light)</th>
+            <td>🌙 / ☀️ Ambos</td>
+            <td>
+              Diseño moderno, buen contraste general.
+            </td>
+            <td>
+              Alternar claro y oscuro según el momento.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div className="callout tip">
+      <strong>Recomendación del manual:</strong> empieza con <em>Dark+</em> o <em>Light+</em>.
+      Cuando ya tengas soltura, prueba <em>GitHub Theme</em>.
+    </div>
+
+    <div className="callout warn">
+      Instalar muchos temas “por probar” no mejora el aprendizaje.
+      Cambia de tema solo si tienes un motivo claro (cansancio visual, luz del entorno, etc.).
+    </div>
+
+    <p>
+      Recuerda: <strong>el tema es una herramienta de comodidad, no de aprendizaje</strong>.
+      Lo importante es entender el código y detectar errores con facilidad.
+    </p>
+  </div>
+</details>
+
       </section>
 
       {/* ===================================================== */}
@@ -581,6 +991,8 @@ export default function Tema0() {
             </div>
           </div>
         </details>
+       
+
 
         <details className="dd">
           <summary>6.4 · Guardado y orden: la parte silenciosa del éxito</summary>
@@ -607,6 +1019,73 @@ export default function Tema0() {
             </details>
           </div>
         </details>
+        <details className="dd">
+  <summary>6.5 Nomenclatura: cómo nombrar archivos y carpetas correctamente</summary>
+
+  <div className="dd-body">
+    <p>
+      La <strong>nomenclatura</strong> se refiere a las reglas que seguimos para
+      nombrar archivos, carpetas y recursos. Aplicar una buena nomenclatura hace
+      que tu proyecto sea <strong>profesional, legible y fácil de mantener</strong>,
+      tanto para ti como para cualquier otra persona que trabaje con tu código.
+    </p>
+
+    <div className="callout">
+      Un proyecto bien nombrado se entiende antes incluso de abrir los archivos.
+    </div>
+
+    <h3>Nomenclatura de archivos y carpetas</h3>
+
+    <ul>
+      <li>
+        <strong>Usa siempre nombres en minúsculas:</strong> evita las mayúsculas.
+        Muchos servidores distinguen entre mayúsculas y minúsculas, por lo que
+        <code>Image.jpg</code> y <code>image.jpg</code> serían archivos distintos,
+        provocando errores difíciles de detectar.
+      </li>
+
+      <li>
+        <strong>Sin espacios:</strong> no uses espacios en nombres de archivos o
+        carpetas. Para separar palabras utiliza guiones <code>-</code> o guiones
+        bajos <code>_</code>.
+        <br />
+        <em>Ejemplos correctos:</em>{" "}
+        <code>mi-archivo.html</code>, <code>mi_archivo.html</code>
+      </li>
+
+      <li>
+        <strong>Extensiones correctas:</strong> usa siempre la extensión adecuada
+        según el tipo de archivo:
+        <ul>
+          <li><code>.html</code> → documentos HTML</li>
+          <li><code>.css</code> → hojas de estilo</li>
+          <li><code>.js</code> → JavaScript</li>
+          <li><code>.png</code>, <code>.jpg</code>, <code>.svg</code> → imágenes</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>Nombres descriptivos:</strong> evita nombres genéricos como
+        <code>archivo1</code> o <code>prueba</code>. Usa nombres que expliquen
+        su función.
+        <br />
+        <em>Ejemplo:</em> <code>assets/</code>, <code>css/</code>, <code>img/</code>
+      </li>
+
+      <li>
+        <strong>Escribir en inglés:</strong> es una convención de la industria.
+        Facilita la colaboración en proyectos internacionales y te ayuda a
+        acostumbrarte al lenguaje de la documentación técnica.
+      </li>
+    </ul>
+
+    <div className="callout tip">
+      <strong>Regla práctica:</strong> si alguien abre tu proyecto y entiende la
+      estructura sin explicaciones, la nomenclatura es correcta.
+    </div>
+  </div>
+</details>
+
       </section>
 
       {/* ===================================================== */}
@@ -781,33 +1260,80 @@ export default function Tema0() {
       </section>
 
       {/* ===================================================== */}
-      <section id="repaso" className="doc-section">
-        <h2>10) Repaso + test</h2>
+      <section className="doc-section" id="resumen-tema0">
+  <h2>✅ Resumen del tema (Checklist)</h2>
 
-        <details open className="dd">
-          <summary>Checklist final (si puedes marcar todo, estás en el camino correcto)</summary>
-          <div className="dd-body">
-            <ul>
-              <li>Entiendo qué es VS Code y para qué se usa en proyectos reales.</li>
-              <li>
-                Sé explicar qué es un <strong>IDE</strong> con mis palabras.
-              </li>
-              <li>Distingo la filosofía de VS Code frente a NetBeans/Eclipse/IntelliJ.</li>
-              <li>
-                Sé trabajar abriendo <strong>carpetas de proyecto</strong> (no archivos sueltos).
-              </li>
-              <li>Reconozco las zonas: Explorador, Editor, Panel inferior, Barra de estado.</li>
-              <li>
-                Cuando hay un problema, sé dónde mirar: <strong>Problemas / Terminal / Salida</strong>.
-              </li>
+  <details className="dd" open>
+    <summary>Lo que deberías poder hacer al terminar el Tema 0</summary>
+
+    <div className="dd-body">
+      <p>
+        Marca mentalmente lo que ya dominas. Si algo no te sale, vuelve a la sección correspondiente
+        antes de pasar al siguiente tema.
+      </p>
+
+      <div className="topic-summary">
+        <div className="topic-summary__grid">
+          {/* BLOQUE 1 */}
+          <div className="topic-summary__card">
+            <h3 className="topic-summary__title">🧭 Entender el entorno</h3>
+            <ul className="topic-summary__list">
+              <li>Distingo <strong>editor</strong> vs <strong>IDE</strong> (y sé explicarlo).</li>
+              <li>Entiendo por qué VS Code es “mesa de trabajo” (proyecto, orden y control).</li>
+              <li>Sé cuándo usar VS Code instalado y cuándo <strong>vscode.dev</strong>.</li>
             </ul>
-
-            <div className="callout tip">
-              <strong>Si hoy solo te queda 1 cosa:</strong> estructura + guardado + lectura de mensajes. Ahí empieza el
-              trabajo profesional.
-            </div>
           </div>
-        </details>
+
+          {/* BLOQUE 2 */}
+          <div className="topic-summary__card">
+            <h3 className="topic-summary__title">🗂️ Trabajar por proyectos</h3>
+            <ul className="topic-summary__list">
+              <li>Uso siempre <strong>Abrir carpeta</strong> (no archivos sueltos).</li>
+              <li>Sé crear una estructura simple de proyecto (carpetas + archivos).</li>
+              <li>Aplico <strong>nomenclatura</strong> correcta (minúsculas, sin espacios, nombres claros).</li>
+            </ul>
+          </div>
+
+          {/* BLOQUE 3 */}
+          <div className="topic-summary__card">
+            <h3 className="topic-summary__title">🧪 Diagnóstico sin frustración</h3>
+            <ul className="topic-summary__list">
+              <li>Sé dónde mirar cuando algo falla: <strong>Problemas</strong>, <strong>Terminal</strong>, <strong>Salida</strong>.</li>
+              <li>Antes de “no funciona”, compruebo: <strong>¿he guardado?</strong></li>
+              <li>Reconozco errores típicos: archivo equivocado, duplicados, rutas mal puestas.</li>
+            </ul>
+          </div>
+
+          {/* BLOQUE 4 */}
+          <div className="topic-summary__card">
+            <h3 className="topic-summary__title">⚙️ Ajustes básicos</h3>
+            <ul className="topic-summary__list">
+              <li>Sé cambiar tema (<strong>Ctrl+K</strong> luego <strong>Ctrl+T</strong>) y elegir uno adecuado.</li>
+              <li>Sé instalar extensiones con criterio (pocas y útiles).</li>
+              <li>Entiendo el <strong>Auto Save</strong>: cuándo guarda y cuándo puede no convenir.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="callout tip" style={{ marginTop: ".9rem" }}>
+          <strong>Regla de oro:</strong> Si controlas <em>estructura + guardado + lectura de mensajes</em>, el curso se
+          te va a hacer muchísimo más fácil.
+        </div>
+
+        <div className="topic-summary__actions">
+          <a className="btn" href="#practica" onClick={(e) => handleIndexClick(e, "practica")}>
+            Volver a la práctica
+          </a>
+          <a className="btn btn-primary" href="#test0" onClick={(e) => handleIndexClick(e, "test0")}>
+            Ir al test
+          </a>
+        </div>
+      </div>
+    </div>
+  </details>
+
+
+
 
         {/* TEST con corrección automática (sin ver soluciones antes) */}
         <details className="dd" id="test0">
@@ -1143,12 +1669,118 @@ export default function Tema0() {
             </div>
           </div>
         </details>
+      {/* ===================================================== */}
 
-        <div className="doc-next">
-          <a className="btn btn-primary" href="/tema/1">
-            Siguiente tema <span aria-hidden="true">→</span>
-          </a>
-        </div>
+        {/* BONUS · Recursos para profundizar (reutilizable) */}
+        <details className="dd" id="bonus-vscode">
+          <summary>🎁 BONUS · Para profundizar y resolver dudas</summary>
+
+          <div className="dd-body">
+            <section className="bonus" aria-label="Bonus: recursos para profundizar">
+      {/* 🔸 Cambia SOLO esta ruta si tu icono “bonus” está en otra carpeta */}
+      <img className="bonus__badge" src="/img/bonus.png" alt="" aria-hidden="true" />
+
+              <div className="bonus__head">
+                <h3 className="bonus__title">Para ampliar VS Code con recursos fiables</h3>
+                <p className="bonus__lead">
+                  Si quieres ir un paso más allá (o te has atascado), aquí tienes recursos fiables para reforzar lo aprendido.
+                  No es obligatorio para seguir el manual, pero te da <strong>claridad</strong> y <strong>seguridad</strong>.
+                </p>
+              </div>
+
+              <div className="callout tip">
+                ✅ Recomendación: primero mira el vídeo embebido (resumen práctico) y después consulta la documentación oficial
+                cuando tengas dudas concretas.
+              </div>
+
+              {/* VÍDEO 1 (EMBEBIDO) */}
+              <div className="bonus__block">
+                <h4 className="bonus__subtitle">🎬 Vídeo recomendado (embebido)</h4>
+
+                <div className="media-video" aria-label="Vídeo recomendado de VS Code">
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/CxF3ykWP1H4"
+                    title="Curso/guía de VS Code (vídeo recomendado)"
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    sandbox="allow-scripts allow-same-origin allow-presentation"
+                    allowFullScreen
+                  />
+                </div>
+
+                <p className="bonus__muted">
+                  Si no se carga el vídeo, ábrelo en nueva pestaña:{" "}
+                  <a
+                    className="bonus__link"
+                    href="https://www.youtube.com/watch?v=CxF3ykWP1H4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver en YouTube
+                  </a>
+                  .
+                </p>
+              </div>
+
+              {/* DOCUMENTACIÓN + MÁS RECURSOS */}
+              <div className="bonus__grid">
+                <div className="bonus__col">
+                  <h4 className="bonus__subtitle">📚 Documentación oficial</h4>
+
+                  <a
+                    className="bonus-link"
+                    href="https://code.visualstudio.com/docs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="bonus-link__top">
+                      <span className="bonus-link__name">Visual Studio Code · Documentation</span>
+                      <span className="bonus-link__tag">Oficial</span>
+                    </div>
+                    <p className="bonus-link__desc">
+                      Guías por temas, atajos, terminal, extensiones y configuración. Ideal para dudas concretas.
+                    </p>
+                    <span className="bonus-link__url">code.visualstudio.com/docs</span>
+                  </a>
+                </div>
+
+                <div className="bonus__col">
+                  <h4 className="bonus__subtitle">🔗 Más recursos</h4>
+
+                  <div className="bonus-list">
+                    <a
+                      className="bonus-item"
+                      href="https://www.udemy.com/course/visual-studio-code-editor/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="bonus-item__name">Curso de VS Code en Udemy</span>
+                      <span className="bonus-item__desc">Para profundizar con estructura de curso (lecciones + práctica).</span>
+                    </a>
+
+                    <a
+                      className="bonus-item"
+                      href="https://www.youtube.com/watch?v=TbzrOz8HbFM"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="bonus-item__name">Vídeo recomendado (YouTube)</span>
+                      <span className="bonus-item__desc">Refuerzo adicional para afianzar interfaz, atajos y flujo de trabajo.</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </details>
+        {/* ===================================================== */}
+
+       <div className="doc-next">
+  <Link className="btn btn-primary" to="/tema/1">
+    Siguiente tema <span aria-hidden="true">→</span>
+  </Link>
+</div>
       </section>
     </div>
   );

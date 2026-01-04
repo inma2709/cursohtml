@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 export default function Home() {
   useEffect(() => {
@@ -9,27 +11,48 @@ export default function Home() {
     <main className="doc">
       <section className="estructura-formativa" id="home-uf1841">
         {/* HERO */}
-        <header className="doc-hero">
-          <p className="doc-kicker">Manual UF1841 · HTML </p>
-          <h1>Manual online: teoría + práctica + recursos + test</h1>
-          <p className="doc-lead">
-            Este manual está pensado para aprender <strong>desde cero</strong> y llegar a un nivel
-            <strong> profesional</strong> con una estructura muy clara: explicación, ejemplo real,
-            ejercicios guiados, checklist de buenas prácticas y test de repaso.
-          </p>
+       <header className="doc-hero">
+  <p className="doc-kicker">Manual UF1841 · HTML </p>
 
-          <div className="callout tip">
-            <strong>Cómo usar este manual:</strong> abre un tema, lee la teoría, copia el ejemplo,
-            haz el ejercicio y termina con el test. Si fallas, vuelve a la sección donde está el concepto.
-          </div>
+  {/* FOTO (usa el estilo .media que ya tenéis) */}
+  <figure className="media" style={{ margin: "0.25rem 0 0.75rem" }}>
+    <img
+      src="./img/tema1/aprenderhtml.png"
+      alt="Portada del Manual UF1841: HTML desde cero con teoría, práctica y test"
+      width="500"
+      height="320"
+      loading="lazy"
+      decoding="async"
+      style={{ borderRadius: "16px" }}
+    />
+    <figcaption>
+      Manual UF1841: aprende HTML con teoría, ejemplos, ejercicios y test.
+    </figcaption>
+  </figure>
 
-          <div className="form-actions" style={{ marginTop: ".9rem" }}>
-            <a className="btn btn-primary" href="#ruta-tema-0">
-              Comenzar por el Tema 0
-            </a>
-           
-          </div>
-        </header>
+  <h1>Manual online: teoría + práctica + recursos + test</h1>
+
+  <p className="doc-lead">
+    Este manual te guía paso a paso para aprender HTML desde cero hasta un nivel profesional.Poco a poco te introducirá en la 
+    semántica, accesibilidad, optimización y buenas prácticas, con teoria,ejemplos y ejercicios guiados.Está pensado para facilitarte el camino
+    y es un manual vivo que incluso podremos ir modificando y actualizando según avancemos en el curso.La idea es que al terminarlo tengas un conocimiento sólido de HTML y puedas aplicarlo en proyectos reales.
+      </p>
+
+  <div className="callout tip">
+    <strong>Cómo aprender:</strong> abre un tema, lee la teoría, intenta entender y sobre todo practica mucho con los ejemplos y ejercicios.
+    La mejor forma de aprender es haciendo.No tengas miedo a equivocarte, es parte del proceso.
+    Sabemos que actualmente la inteligencia artificial (IA) está muy presente, pero en este curso nos centraremos en aprender HTML de manera tradicional para asegurarnos de que comprendes los fundamentos y puedes aplicarlos correctamente.
+    Recuerda que la ia es un copiloto perfecto (pero tú eres el que conduce).Cuando tengas una base sólida en HTML, podrás utilizar la IA como una herramienta adicional para mejorar tu flujo de trabajo y productividad.
+    Pero de momento te aconsejo que la dejes a un lado y te centres en aprender los conceptos básicos por ti mismo.
+    </div>
+
+  <div className="form-actions" style={{ marginTop: ".9rem" }}>
+    <a className="btn btn-primary" href="#ruta-tema-0">
+      Comenzar por el Tema 0
+    </a>
+  </div>
+</header>
+
 
         {/* ¿QUÉ INCLUYE? */}
         <section className="doc-section" id="que-incluye">
@@ -39,8 +62,8 @@ export default function Home() {
             <article className="card" role="listitem">
               <h3>📘 Teoría clara</h3>
               <p>
-                Conceptos explicados con ejemplos cortos y lenguaje de clase. Nada de “definiciones vacías”:
-                siempre con intención práctica.
+                Conceptos explicados de forma sencilla, con ejemplos visuales y lenguaje
+                accesible.
               </p>
             </article>
 

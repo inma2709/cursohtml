@@ -2,6 +2,9 @@
 // ✅ LISTO PARA PEGAR EN TU PROYECTO REACT
 // 📌 Imagen sugerida:
 // /public/img/tema4/estructura-html5.png
+import { Link } from "react-router-dom";
+import { useEffect, useMemo } from "react";
+
 
 export default function Tema4() {
   return (
@@ -26,7 +29,7 @@ export default function Tema4() {
         <h2>1) ¿Qué es HTML?</h2>
 
         <details open className="dd">
-          <summary>HTML como lenguaje de marcado</summary>
+          <summary>HTML como lenguaje de marcado o de etiquetas</summary>
           <div className="dd-body">
             <p>
               <strong>HTML</strong> (HyperText Markup Language) es un lenguaje de marcado que se utiliza
@@ -47,49 +50,173 @@ export default function Tema4() {
         </details>
       </section>
 
-      {/* ===================================================== */}
-      <section className="doc-section">
-        <h2>2) HTML5: evolución y mejoras</h2>
+     {/* ===================================================== */}
+<section className="doc-section">
+  <h2>2) HTML5: evolución y mejoras</h2>
 
-        <details open className="dd">
-          <summary>¿Qué es HTML5?</summary>
-          <div className="dd-body">
-            <p>
-              <strong>HTML5</strong> es la versión moderna del lenguaje HTML.
-              No es un lenguaje nuevo, sino una evolución que introduce etiquetas más claras,
-              mejor soporte multimedia y una estructura más semántica.
-            </p>
+  <details open className="dd">
+    <summary>¿Qué es HTML y qué aporta HTML5?</summary>
+    <div className="dd-body">
+      <p>
+        <strong>HTML (HyperText Markup Language)</strong> es el lenguaje de marcado
+        fundamental de la web. Define la <strong>estructura y el contenido</strong>
+        de una página web: textos, imágenes, enlaces, formularios, etc.
+      </p>
 
-            <ul>
-              <li>Introduce etiquetas con significado claro (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>…).</li>
-              <li>Mejora el soporte de audio, vídeo y formularios.</li>
-              <li>Favorece la accesibilidad y el posicionamiento en buscadores.</li>
-              <li>Está pensado para funcionar bien en móviles y distintos dispositivos.</li>
-            </ul>
+      <p>
+        Podemos pensar en HTML como el <strong>esqueleto</strong> de una página:
+        no se encarga del diseño ni del comportamiento, sino de organizar la información.
+      </p>
 
-            <div className="callout tip">
-              HTML5 ayuda a que humanos, navegadores y buscadores entiendan mejor la página.
-            </div>
-          </div>
-        </details>
+      <p>
+        <strong>HTML5</strong> no es un lenguaje nuevo, sino una <strong>evolución</strong>
+        del HTML clásico que introduce mejoras clave para crear páginas modernas,
+        accesibles y preparadas para móviles.
+      </p>
 
-        <details className="dd">
-          <summary>Diferencias con versiones anteriores</summary>
-          <div className="dd-body">
-            <p>
-              Antes de HTML5 se abusaba de contenedores genéricos como <code>&lt;div&gt;</code>.
-              HTML5 introduce etiquetas específicas que explican la función de cada zona de la página.
-            </p>
+      <div className="callout tip">
+        HTML define <strong>qué es cada cosa</strong>, no cómo se ve ni cómo se comporta.
+      </div>
+    </div>
+  </details>
 
-            <ul>
-              <li>Antes: estructura poco clara.</li>
-              <li>Ahora: estructura semántica y organizada.</li>
-              <li>Antes: dependía mucho de plugins externos.</li>
-              <li>Ahora: funcionalidades integradas en el navegador.</li>
-            </ul>
-          </div>
-        </details>
-      </section>
+  <details className="dd">
+    <summary>Características clave de HTML5</summary>
+    <div className="dd-body">
+      <ul>
+        <li>
+          <strong>Elementos semánticos:</strong> nuevas etiquetas como
+          <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>,
+          <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> o <code>&lt;nav&gt;</code>
+          que indican claramente la función de cada parte de la página.
+        </li>
+
+        <li>
+          <strong>Multimedia nativa:</strong> permite insertar audio y vídeo directamente
+          con <code>&lt;audio&gt;</code> y <code>&lt;video&gt;</code>, sin depender de plugins
+          externos como Flash.
+        </li>
+
+        <li>
+          <strong>Gráficos y efectos:</strong> incorpora <code>&lt;canvas&gt;</code> para
+          gráficos dinámicos y <code>&lt;svg&gt;</code> para gráficos vectoriales escalables.
+        </li>
+
+        <li>
+          <strong>Formularios mejorados:</strong> nuevos tipos de campos como
+          <code>email</code>, <code>date</code>, <code>number</code> o <code>range</code>,
+          que facilitan la validación y mejoran la experiencia del usuario.
+        </li>
+
+        <li>
+          <strong>APIs avanzadas:</strong> incluye APIs nativas como geolocalización,
+          almacenamiento local (<code>localStorage</code> y <code>sessionStorage</code>)
+          o procesos en segundo plano (<em>Web Workers</em>).
+        </li>
+      </ul>
+
+      <div className="callout tip">
+        HTML5 permite crear aplicaciones web ricas sin depender de tecnologías externas.
+      </div>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>Propiedades del lenguaje HTML</summary>
+    <div className="dd-body">
+      <ul>
+        <li>
+          ✔️ <strong>Simple y universal:</strong> un archivo HTML es texto plano,
+          editable con cualquier editor.
+        </li>
+        <li>
+          ✔️ <strong>Contenido y estructura juntos:</strong> el texto y las etiquetas
+          conviven en el mismo documento, facilitando su lectura.
+        </li>
+        <li>
+          ✔️ <strong>Flexible y adaptable:</strong> el mismo HTML puede verse correctamente
+          en móviles, tablets y ordenadores.
+        </li>
+        <li>
+          ✔️ <strong>Estándares abiertos:</strong> está respaldado por el W3C, lo que
+          garantiza compatibilidad entre navegadores.
+        </li>
+      </ul>
+
+      <div className="callout info">
+        HTML es la base sobre la que se construye todo lo demás en la web.
+      </div>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>HTML no trabaja solo</summary>
+    <div className="dd-body">
+      <p>
+        Aunque HTML es fundamental, <strong>no funciona de manera aislada</strong>.
+        En el desarrollo web moderno trabaja junto a otras tecnologías:
+      </p>
+
+      <ul>
+        <li>
+          <strong>CSS:</strong> se encarga del diseño visual (colores, tamaños,
+          distribución, tipografías).
+        </li>
+        <li>
+          <strong>JavaScript:</strong> añade interactividad y comportamiento dinámico
+          (formularios, botones, datos en tiempo real).
+        </li>
+      </ul>
+
+      <div className="callout tip">
+        HTML + CSS + JavaScript forman el <strong>trío básico del desarrollo web</strong>.
+      </div>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>Estructura básica de una página HTML</summary>
+    <div className="dd-body">
+      <p>
+        Toda página HTML sigue una estructura mínima que permite al navegador
+        interpretar correctamente el contenido.
+      </p>
+
+      <ul>
+        <li>
+          <code>&lt;!DOCTYPE html&gt;</code>: indica que usamos HTML5.
+        </li>
+        <li>
+          <code>&lt;html&gt;</code>: engloba todo el documento.
+        </li>
+        <li>
+          <code>&lt;head&gt;</code>: contiene metadatos, título y enlaces a CSS.
+        </li>
+        <li>
+          <code>&lt;body&gt;</code>: contiene todo lo visible para el usuario.
+        </li>
+      </ul>
+
+      <pre>
+        <code>{`<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mi primera web</title>
+  </head>
+  <body>
+    <h1>Hola mundo</h1>
+    <p>Mi primera página HTML</p>
+  </body>
+</html>`}</code>
+      </pre>
+
+      <div className="callout warning">
+        Sin esta estructura básica, el navegador puede interpretar mal la página.
+      </div>
+    </div>
+  </details>
+</section>
 
       {/* ===================================================== */}
       <section className="doc-section">
@@ -186,11 +313,11 @@ export default function Tema4() {
           </div>
         </details>
 
-        <div className="doc-next">
-          <a className="btn btn-primary" href="/tema/5">
-            Siguiente tema <span aria-hidden="true">→</span>
-          </a>
-        </div>
+       <div className="doc-next">
+  <Link className="btn btn-primary" to="/tema/5">
+    Siguiente tema <span aria-hidden="true">→</span>
+  </Link>
+</div>
       </section>
     </div>
   );

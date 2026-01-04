@@ -1,5 +1,32 @@
 
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
 export default function Tema2() {
+  // Función para manejar clicks en enlaces del índice
+  const handleIndexClick = (event, targetId) => {
+    event.preventDefault();
+    
+    // Buscar el elemento objetivo
+    const target = document.getElementById(targetId);
+    if (target) {
+      // Buscar el details padre más cercano y abrirlo
+      const detailsParent = target.closest('details');
+      if (detailsParent) {
+        detailsParent.open = true;
+      }
+      
+      // Hacer scroll al elemento después de un pequeño delay
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
+  // useEffect para el título de la página
+  useEffect(() => {
+    document.title = "UF1841 · Tema 2 · Prototipado web";
+  }, []);
   return (
     <div className="doc">
       <header className="doc-hero">
@@ -25,14 +52,14 @@ export default function Tema2() {
       <nav className="doc-index" aria-label="Índice del tema">
         <h2>Índice</h2>
         <ol>
-          <li><a href="#que-es">Qué es prototipar (y por qué importa)</a></li>
-          <li><a href="#sites">Paso 1: tu primera web en Google Sites (simple y resultona)</a></li>
-          <li><a href="#canva">Paso 2: diseño rápido en Canva (visual y presentable)</a></li>
-          <li><a href="#figma">Paso 3: Figma (prototipo profesional)</a></li>
-          <li><a href="#video">Vídeo tutorial recomendado (Figma)</a></li>
-          <li><a href="#recursos">Recursos y páginas para ampliar</a></li>
-          <li><a href="#practica">Práctica guiada</a></li>
-          <li><a href="#cierre">Checklist final</a></li>
+          <li><a href="#que-es" onClick={(e) => handleIndexClick(e, 'que-es')}>Qué es prototipar (y por qué importa)</a></li>
+          <li><a href="#sites" onClick={(e) => handleIndexClick(e, 'sites')}>Paso 1: tu primera web en Google Sites (simple y resultona)</a></li>
+          <li><a href="#canva" onClick={(e) => handleIndexClick(e, 'canva')}>Paso 2: diseño rápido en Canva (visual y presentable)</a></li>
+          <li><a href="#figma" onClick={(e) => handleIndexClick(e, 'figma')}>Paso 3: Figma (prototipo profesional)</a></li>
+          <li><a href="#video" onClick={(e) => handleIndexClick(e, 'video')}>Vídeo tutorial recomendado (Figma)</a></li>
+          <li><a href="#recursos" onClick={(e) => handleIndexClick(e, 'recursos')}>Recursos y páginas para ampliar</a></li>
+          <li><a href="#practica" onClick={(e) => handleIndexClick(e, 'practica')}>Práctica guiada</a></li>
+          <li><a href="#cierre" onClick={(e) => handleIndexClick(e, 'cierre')}>Checklist final</a></li>
         </ol>
       </nav>
 
@@ -50,7 +77,7 @@ export default function Tema2() {
             </p>
             <figure className="media">
   <img
-    src="/img/prototipado.png"
+    src="./img/prototipado.png"
     alt="Proceso de prototipado web: Google Sites, Canva y Figma como herramientas para crear maquetas"
     loading="lazy"
     decoding="async"
@@ -63,7 +90,7 @@ export default function Tema2() {
 
 
             <div className="callout">
-              <strong>Idea clave:</strong> si no puedes explicar tu estructura en 30 segundos, el diseño está verde.
+              <strong>Idea clave:</strong> si no puedes explicar tu estructura en 1 minuto, el diseño está verde. Puedes empezar por un papel y lápiz, pero aquí usamos herramientas digitales.
             </div>
 
             <details className="dd dd-nested">
@@ -94,7 +121,7 @@ export default function Tema2() {
             </p>
 
             <div className="callout tip">
-              <strong>Meta docente:</strong> aprender a “pensar por secciones”, que es exactamente como trabajaremos en HTML.
+              <strong>Objetivo:</strong> aprender a “pensar por secciones”, que es exactamente como trabajaremos en HTML.
             </div>
           </div>
         </details>
@@ -103,13 +130,14 @@ export default function Tema2() {
           <summary>2.2 · Mini-guía: tu primera página atractiva </summary>
           <div className="dd-body">
             <ol>
-              <li><strong>Crea un sitio</strong> y elige un tema base (no pierdas 30 minutos aquí).</li>
+              <li><strong>Crea un sitio</strong> y elige un tema base</li>
+              <p>Puedes hacer un curriculum digital, o una presentación de proyectos o un blog de algún tema que te interese.</p>
               <li>
                 En la <strong>cabecera</strong>, define:
                 <ul>
                   <li>Un título corto (qué haces).</li>
                   <li>Un subtítulo (a quién ayudas / qué problema resuelves).</li>
-                  <li>Un botón CTA: “Reservar”, “Ver catálogo”, “Contactar”, “Apuntarme”…</li>
+                  <li>Un botón CTA (llamada a la acción): “Reservar”, “Ver catálogo”, “Contactar”, “Apuntarme”…</li>
                 </ul>
               </li>
               <p>CTA (Call To Action) significa llamada a la acción. En diseño web es el elemento que indica de forma clara al usuario qué debe hacer a continuación: continuar, registrarse, descargar, comprar o avanzar al siguiente paso. Normalmente se presenta como un botón o enlace destacado y su función es guiar la navegación sin generar dudas. Un buen CTA reduce la fricción, facilita la toma de decisiones y ayuda a que la web cumpla su objetivo, evitando que el usuario se quede bloqueado pensando “¿y ahora qué?”.</p>
@@ -123,7 +151,7 @@ export default function Tema2() {
                 </ul>
               </li>
               <li><strong>Revisa en móvil</strong> (modo vista previa) y simplifica si se ve cargado.</li>
-              <li><strong>Publica</strong> (aunque sea una versión 0.1).</li>
+              <li><strong>Publica</strong> </li>
             </ol>
 
             <div className="callout">
@@ -232,7 +260,7 @@ export default function Tema2() {
         </details>
 
         <details className="dd">
-          <summary>4.2 · Primeros conceptos que sí o sí debes dominar</summary>
+          <summary>4.2 · Primeros conceptos que  debes conocer</summary>
           <div className="dd-body">
             <ul>
               <li><strong>Frames:</strong> “pantallas” (desktop, tablet, móvil).</li>
@@ -241,6 +269,10 @@ export default function Tema2() {
               <li><strong>Styles:</strong> colores y tipografías centralizadas (consistencia).</li>
               <li><strong>Prototipo:</strong> enlazar pantallas (clic, hover, navegación).</li>
             </ul>
+            <p> Figma es una herramienta muy potente para diseñar y prototipar interfaces de usuario.Pero para dominarla bien, necesitarás dedicarle tiempo y práctica. 
+              En este curso, nos centraremos en los conceptos básicos que te permitirán crear prototipos básicos y que conozcas las bases de este programa que te permitan
+              más adelante profundizar por tu cuenta.
+            </p>
 
             <div className="callout tip">
               <strong>Regla:</strong> si una cosa se repite (botón, card, badge), se convierte en componente.
@@ -257,6 +289,7 @@ export default function Tema2() {
                   </li>
                 </ul>
               </div>
+             
             </details>
           </div>
         </details>
@@ -294,6 +327,24 @@ export default function Tema2() {
               Si el vídeo no carga en tu entorno, ábrelo en YouTube desde el canal oficial de Figma.
             </p>
           </div>
+            <div className="dd-body">
+                <ul>
+                  <li>
+                    <a href="https://www.youtube.com/watch?v=VdS9ZGHHXWQ" target="_blank" rel="noreferrer">
+                      Curso Figma desde cero (YouTube, 1h 30min)
+                    </a>
+                  </li>
+                </ul>
+              </div>
+               <div className="dd-body">
+                <ul>
+                  <li>
+                    <a href="https://www.youtube.com/watch?v=q6WPfjTU_B0" target="_blank" rel="noreferrer">
+                      Curso intensivo de Figma (YouTube, 30min)
+                    </a>
+                  </li>
+                </ul>
+              </div>
         </details>
       </section>
 
@@ -410,12 +461,11 @@ export default function Tema2() {
             </div>
           </div>
         </details>
-
-        <div className="doc-next">
-          <a className="btn btn-primary" href="/tema/3">
-            Siguiente tema <span aria-hidden="true">→</span>
-          </a>
-        </div>
+<div className="doc-next">
+  <Link className="btn btn-primary" to="/tema/3">
+    Siguiente tema <span aria-hidden="true">→</span>
+  </Link>
+</div>
       </section>
     </div>
   );

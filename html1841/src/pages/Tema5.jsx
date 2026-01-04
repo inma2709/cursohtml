@@ -1,4 +1,6 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+
 
 function mulberry32(seed) {
   let t = seed >>> 0;
@@ -24,7 +26,7 @@ export default function Tema5EtiquetasHTML() {
   const meta = {
     tema: "Tema 5",
     titulo: "Etiquetas HTML: estructura, contenido, semántica y buenas prácticas",
-    kicker: "UF1841 · Aprendiendo HTML",
+    kicker: "Tema 5 · Etiquetas HTML",
     lead:
       "Las etiquetas HTML son los bloques que dan forma a cualquier página web. En este tema aprenderás a leer y escribir HTML con criterio: cómo se construyen las etiquetas, cómo se clasifican, cuándo usar semántica y cómo evitar errores típicos que rompen accesibilidad, SEO y mantenimiento.",
   };
@@ -188,6 +190,17 @@ export default function Tema5EtiquetasHTML() {
     setResult(null);
   }
 
+  // Función para manejar el scroll a las secciones
+  function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
   return (
     <main className="doc">
       {/* HERO */}
@@ -218,7 +231,15 @@ export default function Tema5EtiquetasHTML() {
         <ol>
           {sections.map((s) => (
             <li key={s.id}>
-              <a href={`#${s.id}`}>{s.label}</a>
+              <a 
+                href={`#${s.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(s.id);
+                }}
+              >
+                {s.label}
+              </a>
             </li>
           ))}
         </ol>
@@ -234,6 +255,7 @@ export default function Tema5EtiquetasHTML() {
           HTML5 consolidó un enfoque moderno: más semántica, mejor soporte multimedia, formularios más potentes
           y un ecosistema coherente con APIs del navegador.
         </p>
+        
 
         <details className="dd">
           <summary>Conceptos básicos que debes dominar</summary>
@@ -269,7 +291,7 @@ export default function Tema5EtiquetasHTML() {
         <h2>Estructura de una etiqueta: apertura, contenido, cierre y atributos</h2>
         <p>
           La mayoría de elementos HTML siguen un patrón: etiqueta de apertura, contenido y etiqueta de cierre.
-          Además, pueden incluir <strong>atributos</strong> que ajustan su comportamiento.
+          Además, pueden incluir <strong>atributos</strong> que ajustan su comportamiento.Hay etiquetas que no se cierran porque no envuelven contenido (void elements).
         </p>
 
         <details className="dd">
@@ -907,6 +929,11 @@ section#about.card>h2+p`}</code>
           </p>
         </div>
       </section>
+      <div className="doc-next">
+  <Link className="btn btn-primary" to="/tema/6">
+    Siguiente tema <span aria-hidden="true">→</span>
+  </Link>
+</div>
     </main>
   );
 }

@@ -6,13 +6,43 @@
 // /public/img/tema1/diseño.png
 // /public/img/tema1/color.png
 
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 export default function Tema1() {
+  // Función para manejar clicks en enlaces del índice
+  const handleIndexClick = (event, targetId) => {
+    event.preventDefault();
+    
+    // Buscar el elemento objetivo
+    const target = document.getElementById(targetId);
+    if (target) {
+      // Buscar el details padre más cercano y abrirlo
+      const detailsParent = target.closest('details');
+      if (detailsParent) {
+        detailsParent.open = true;
+      }
+      
+      // Hacer scroll al elemento después de un pequeño delay
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
+  // useEffect para el título de la página
+  useEffect(() => {
+    document.title = "UF1841 · Tema 1 · Diseño web";
+  }, []);
   return (
     <div className="doc">
       <header className="doc-hero">
         <p className="doc-kicker">Tema 1 · Diseño web</p>
         <h1>Diseño web: pensar antes de construir</h1>
+        <p>Nuestra primera actividad fue construir una web con Google Sites para entender la importancia del diseño antes de programar.
+          Ya en esta unidad, profundizaremos en los principios de diseño web que todo desarrollador debe conocer.</p>
+        
         <p className="doc-lead">
           Antes de escribir HTML, un profesional toma decisiones: qué quiere comunicar, a quién, con qué jerarquía y
           cómo lo va a entender alguien que entra por primera vez. Este tema te enseña a mirar una web con criterio:
@@ -34,16 +64,16 @@ export default function Tema1() {
       <nav className="doc-index" aria-label="Índice del tema">
         <h2>Índice</h2>
         <ol>
-          <li><a href="#que-es">Qué es el diseño web (de verdad)</a></li>
-          <li><a href="#principios">Principios básicos de diseño y usabilidad</a></li>
-          <li><a href="#color">Color: armonía, contraste y significado</a></li>
-          <li><a href="#tipografia">Tipografía: legibilidad y jerarquía</a></li>
-          <li><a href="#espaciado">Espaciado y composición: el “aire” también diseña</a></li>
-          <li><a href="#elementos">Colocación de elementos: guiar la mirada</a></li>
-          <li><a href="#mobile">Mobile first: pensar primero en el móvil</a></li>
-          <li><a href="#inspiracion">Páginas y herramientas para inspirarte (sin copiar)</a></li>
-          <li><a href="#practica">Práctica sin código</a></li>
-          <li><a href="#cierre">Cierre y checklist</a></li>
+          <li><a href="#que-es" onClick={(e) => handleIndexClick(e, 'que-es')}>Qué es el diseño web (de verdad)</a></li>
+          <li><a href="#principios" onClick={(e) => handleIndexClick(e, 'principios')}>Principios básicos de diseño y usabilidad</a></li>
+          <li><a href="#color" onClick={(e) => handleIndexClick(e, 'color')}>Color: armonía, contraste y significado</a></li>
+          <li><a href="#tipografia" onClick={(e) => handleIndexClick(e, 'tipografia')}>Tipografía: legibilidad y jerarquía</a></li>
+          <li><a href="#espaciado" onClick={(e) => handleIndexClick(e, 'espaciado')}>Espaciado y composición: el "aire" también diseña</a></li>
+          <li><a href="#elementos" onClick={(e) => handleIndexClick(e, 'elementos')}>Colocación de elementos: guiar la mirada</a></li>
+          <li><a href="#mobile" onClick={(e) => handleIndexClick(e, 'mobile')}>Mobile first: pensar primero en el móvil</a></li>
+          <li><a href="#inspiracion" onClick={(e) => handleIndexClick(e, 'inspiracion')}>Páginas y herramientas para inspirarte (sin copiar)</a></li>
+          <li><a href="#practica" onClick={(e) => handleIndexClick(e, 'practica')}>Práctica sin código</a></li>
+          <li><a href="#cierre" onClick={(e) => handleIndexClick(e, 'cierre')}>Cierre y checklist</a></li>
         </ol>
       </nav>
 
@@ -103,13 +133,13 @@ export default function Tema1() {
 
             <figure className="media">
               <img
-                src="/img/tema1/principios.png"
+                src="./img/tema1/principios.png"
                 alt="Página de referencia sobre principios del diseño web"
                 loading="lazy"
                 decoding="async"
               />
               <figcaption className="muted">
-                Imagen de apoyo: principios generales del diseño web (para comentar en clase).
+                Imagen de apoyo: principios generales del diseño web .
               </figcaption>
             </figure>
           </div>
@@ -185,7 +215,29 @@ export default function Tema1() {
         <div className="callout">
           <strong>Combinación ganadora:</strong> pocas opciones claras (Hick) + botones grandes y accesibles (Fitts).
         </div>
+{/* 🎬 VÍDEO (EMBEBIDO) */}
+    <div className="media-video" aria-label="Vídeo sobre la Ley de Fitts">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/MmMB6yFWv_s"
+        title="Ley de Fitts: explicación y ejemplos"
+        loading="lazy"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        sandbox="allow-scripts allow-same-origin allow-presentation"
+        allowFullScreen
+      />
+    </div>
 
+    <p className="muted" style={{ marginTop: ".5rem" }}>
+      Si no se carga el vídeo, ábrelo en nueva pestaña:{" "}
+      <a
+        href="https://www.youtube.com/watch?v=MmMB6yFWv_s"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver en YouTube
+      </a>
+      </p>
         <ul>
           <li><strong>Hick:</strong> reduce menús interminables y decisiones “sin guía”.</li>
           <li><strong>Fitts:</strong> asegúrate de que lo elegido sea fácil de pulsar.</li>
@@ -277,6 +329,17 @@ export default function Tema1() {
             </ul>
 
            
+            <figure className="media">
+              <img
+                src="./img/tema1/diseño.png"
+                alt="Página de referencia sobre principios del diseño web"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption className="muted">
+                Imagen de apoyo: principios generales del diseño web .
+              </figcaption>
+            </figure>
           </div>
         </details>
       </section>
@@ -322,7 +385,7 @@ export default function Tema1() {
 
             <figure className="media">
               <img
-                src="/img/tema1/color.png"
+                src="./img/tema1/color.png"
                 alt="Referencia visual sobre el significado y efecto del color"
                 loading="lazy"
                 decoding="async"
@@ -360,7 +423,7 @@ export default function Tema1() {
 
             <figure className="media">
               <img
-                src="/img/tema1/tipografia.png"
+                src="./img/tema1/tipografia.png"
                 alt="Referencia visual sobre tipografía en diseño web"
                 loading="lazy"
                 decoding="async"
@@ -391,7 +454,7 @@ export default function Tema1() {
 
             <figure className="media">
               <img
-                src="/img/tema1/diseño.png"
+                src="./img/tema1/diseño .png"
                 alt="Referencia visual sobre espaciado y composición"
                 loading="lazy"
                 decoding="async"
@@ -687,42 +750,120 @@ p{ max-width: 70ch; }`}</code></pre>
 </details>
 
 
-        <details className="dd">
-          <summary>8.3 · Inspiración de diseño (mirar con criterio)</summary>
-          <div className="dd-body">
-            <ul>
-              <li>
-                <a href="https://www.awwwards.com/" target="_blank" rel="noreferrer">
-                  Awwwards — inspiración (alto nivel visual)
-                </a>
-              </li>
-              <li>
-                <a href="https://dribbble.com/" target="_blank" rel="noreferrer">
-                  Dribbble — interfaces y componentes
-                </a>
-              </li>
-              <li>
-                <a href="https://www.behance.net/" target="_blank" rel="noreferrer">
-                  Behance — proyectos completos (branding + UI)
-                </a>
-              </li>
-              <li>
-                <a href="https://www.lapa.ninja/" target="_blank" rel="noreferrer">
-                  Lapa Ninja — landing pages por sectores
-                </a>
-              </li>
-              <li>
-                <a href="https://www.mobbin.com/" target="_blank" rel="noreferrer">
-                  Mobbin — patrones mobile (pantallas reales)
-                </a>
-              </li>
-            </ul>
+       <details className="dd">
+  <summary>8.3 · Inspiración de diseño (mirar con criterio)</summary>
+  <div className="dd-body">
+    <p>
+      Buscar inspiración es buena idea, pero hay que hacerlo con <strong>criterio</strong>:
+      no buscamos “copiar una web”, sino <strong>entender por qué funciona</strong> (estructura, jerarquía, espaciado,
+      CTA, orden del contenido).
+    </p>
 
-            <div className="callout warn">
-              <strong>Importante:</strong> inspirarse NO es copiar. Observa: paleta, jerarquía, espaciado, CTA, orden.
-            </div>
-          </div>
-        </details>
+    <div className="callout warn">
+      <strong>Importante:</strong> inspirarse NO es copiar. Observa: paleta, jerarquía, espaciado, CTA, orden y
+      cómo resuelve la navegación.
+    </div>
+
+    <h4>Plataformas de inspiración visual (alto nivel)</h4>
+    <ul>
+      <li>
+        <a href="https://www.awwwards.com/" target="_blank" rel="noreferrer">
+          Awwwards — inspiración (alto nivel visual)
+        </a>
+      </li>
+      <li>
+        <a href="https://dribbble.com/" target="_blank" rel="noreferrer">
+          Dribbble — interfaces y componentes
+        </a>
+      </li>
+      <li>
+        <a href="https://www.behance.net/" target="_blank" rel="noreferrer">
+          Behance — proyectos completos (branding + UI)
+        </a>
+      </li>
+      <li>
+        <a href="https://www.lapa.ninja/" target="_blank" rel="noreferrer">
+          Lapa Ninja — landing pages por sectores
+        </a>
+      </li>
+      <li>
+        <a href="https://www.mobbin.com/" target="_blank" rel="noreferrer">
+          Mobbin — patrones mobile (pantallas reales)
+        </a>
+      </li>
+    </ul>
+
+    <h4>Dónde encontrar ideas y recursos “para aprender estructura”</h4>
+    <p>
+      Además de mirar webs bonitas, conviene visitar sitios donde puedas ver <strong>bloques de HTML</strong>,
+      plantillas y proyectos reales. Esto te ayuda a aprender cómo se organiza una página completa:
+      <em>header</em>, secciones, cards, formularios, y <em>footer</em>.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Nice HTML:</strong> plantillas y bloques de HTML semántico listos para usar. Ideal para entender
+        cómo se estructura una sección de forma profesional.{" "}
+        <a href="https://nicepage.com/html-templates" target="_blank" rel="noreferrer">
+          Visitar Nice HTML
+        </a>
+      </li>
+
+      <li>
+        <strong>Plantillas gratis HTML:</strong> plantillas modernas (gratuitas y de pago) con estructura completa.
+        Útiles para analizar cómo organizan el contenido y la navegación.{" "}
+        <a href="https://www.free-css.com/free-css-templates" target="_blank" rel="noreferrer">
+          Ir a plantillas HTML
+        </a>
+      </li>
+
+      <li>
+        <strong>CodePen y JSFiddle:</strong> perfectos para explorar y modificar ejemplos reales de HTML/CSS/JS.
+        Aquí aprendes por “experimentación”: cambias algo y ves el efecto al instante.{" "}
+        <a href="https://codepen.io/" target="_blank" rel="noreferrer">
+          Ir a CodePen
+        </a>{" "}
+        ·{" "}
+        <a href="https://jsfiddle.net/" target="_blank" rel="noreferrer">
+          Ir a JSFiddle
+        </a>
+      </li>
+
+      <li>
+        <strong>GitHub:</strong> busca repositorios de portafolios y proyectos open source para ver estructuras reales
+        (carpetas, assets, README, etc.). Es inspiración + aprendizaje profesional a la vez.{" "}
+        <a href="https://github.com/" target="_blank" rel="noreferrer">
+          Ir a GitHub
+        </a>
+      </li>
+    </ul>
+
+    <details className="dd dd-nested">
+      <summary>Cómo “mirar con criterio” (checklist rápida)</summary>
+      <div className="dd-body">
+        <ul>
+          <li><strong>Estructura:</strong> ¿qué secciones hay y en qué orden?</li>
+          <li><strong>Jerarquía:</strong> ¿qué destaca primero y por qué?</li>
+          <li><strong>CTA:</strong> ¿cuál es la acción principal y dónde está?</li>
+          <li><strong>Espaciado:</strong> ¿hay “aire” o está todo apretado?</li>
+          <li><strong>Consistencia:</strong> ¿botones y títulos se repiten con el mismo estilo?</li>
+          <li><strong>Móvil:</strong> ¿se entiende igual en pantallas pequeñas?</li>
+        </ul>
+
+        <div className="callout tip">
+          <strong>Consejo:</strong> elige 1 diseño, copia SOLO la estructura en un boceto (sin estilos),
+          y luego crea tu propia versión con tu contenido.
+        </div>
+      </div>
+    </details>
+
+    <div className="callout">
+      Recuerda: no hay una plantilla perfecta. El diseño es personal y depende de tu estilo y de tus necesidades.
+      <strong> Busca inspiración y experimenta</strong> con diferentes estructuras y estilos.
+    </div>
+  </div>
+</details>
+
       </section>
 
       {/* ===================================================== */}
@@ -844,11 +985,11 @@ p{ max-width: 70ch; }`}</code></pre>
   <div className="bonus-links__note">
     <strong>Mini-reto:</strong> elige 1 web y apunta 3 decisiones de diseño que ves claras (color, tipografía, jerarquía).
   </div>
-   <div className="doc-next">
-          <a className="btn btn-primary" href="/tema/2">
-            Siguiente tema <span aria-hidden="true">→</span>
-          </a>
-        </div>
+  <div className="doc-next">
+  <Link className="btn btn-primary" to="/tema/2">
+    Siguiente tema <span aria-hidden="true">→</span>
+  </Link>
+</div>
 </section>
 
     </div>

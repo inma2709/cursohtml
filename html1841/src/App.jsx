@@ -16,6 +16,7 @@ import Tema11 from "./pages/Tema11";
 import Tema12 from "./pages/Tema12";
 import Tema13 from "./pages/Tema13";
 import Tema14 from "./pages/Tema14";
+import Tema15 from "./pages/Tema15";
 
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="tema/12" element={<Tema12 />} />
         <Route path="tema/13" element={<Tema13 />} />
         <Route path="tema/14" element={<Tema14 />} />
+        <Route path="tema/15" element={<Tema15 />} />
       </Route>
     </Routes>
   );

@@ -2,7 +2,35 @@
 // Tema 3 · Lenguajes de marcado generales
 // Introducción conceptual (sin entrar aún en HTML en detalle)
 
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
+
 export default function Tema3() {
+  // Función para manejar clicks en enlaces del índice
+  const handleIndexClick = (event, targetId) => {
+    event.preventDefault();
+    
+    // Buscar el elemento objetivo
+    const target = document.getElementById(targetId);
+    if (target) {
+      // Buscar el details padre más cercano y abrirlo
+      const detailsParent = target.closest('details');
+      if (detailsParent) {
+        detailsParent.open = true;
+      }
+      
+      // Hacer scroll al elemento después de un pequeño delay
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
+  // useEffect para el título de la página
+  useEffect(() => {
+    document.title = "UF1841 · Tema 3 · Lenguajes de marcado";
+  }, []);
   return (
     <div className="doc">
       <header className="doc-hero">
@@ -23,12 +51,12 @@ export default function Tema3() {
       <nav className="doc-index" aria-label="Índice del tema">
         <h2>Índice</h2>
         <ol>
-          <li><a href="#concepto">Qué es un lenguaje de marcado</a></li>
-          <li><a href="#para-que">Para qué sirven los lenguajes de marcado</a></li>
-          <li><a href="#no-programacion">Lenguajes de marcado vs programación</a></li>
-          <li><a href="#origen">Origen: SGML y XML</a></li>
-          <li><a href="#estructura">Estructura general de un documento</a></li>
-          <li><a href="#ampliar">Enlaces para ampliar conocimientos</a></li>
+          <li><a href="#concepto" onClick={(e) => handleIndexClick(e, 'concepto')}>Qué es un lenguaje de marcado</a></li>
+          <li><a href="#para-que" onClick={(e) => handleIndexClick(e, 'para-que')}>Para qué sirven los lenguajes de marcado</a></li>
+          <li><a href="#no-programacion" onClick={(e) => handleIndexClick(e, 'no-programacion')}>Lenguajes de marcado vs programación</a></li>
+          <li><a href="#origen" onClick={(e) => handleIndexClick(e, 'origen')}>Origen: SGML y XML</a></li>
+          <li><a href="#estructura" onClick={(e) => handleIndexClick(e, 'estructura')}>Estructura general de un documento</a></li>
+          <li><a href="#ampliar" onClick={(e) => handleIndexClick(e, 'ampliar')}>Enlaces para ampliar conocimientos</a></li>
         </ol>
       </nav>
 
@@ -126,7 +154,7 @@ export default function Tema3() {
 
       <figure className="media">
         <img
-          src="/img/tema3/html-estructura.png"
+          src="./img/etiqueta.png"
           alt="Representación conceptual del lenguaje HTML y su estructura"
           loading="lazy"
           decoding="async"
@@ -360,11 +388,11 @@ export default function Tema3() {
         </details>
       </section>
 
-      <div className="doc-next">
-        <a className="btn btn-primary" href="/tema/4">
-          Siguiente tema <span aria-hidden="true">→</span>
-        </a>
-      </div>
+    <div className="doc-next">
+  <Link className="btn btn-primary" to="/tema/4">
+    Siguiente tema <span aria-hidden="true">→</span>
+  </Link>
+</div>
     </div>
   );
 }
