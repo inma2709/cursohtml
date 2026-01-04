@@ -7,7 +7,7 @@ import "./styles/global.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename="/html1841">
+    <BrowserRouter>
       <ScrollToTop />
       <App />
     </BrowserRouter>

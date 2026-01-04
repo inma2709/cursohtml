@@ -184,7 +184,7 @@ export default function Sidebar() {
       <NavLink to="/tema/15" end className={linkClass}>
         {({ isActive }) => (
           <>
-            <span aria-hidden="true">🧪</span>
+            <span aria-hidden="true">🧪</span>npm 
             <span className="label" aria-current={isActive ? "page" : undefined}>
               Tema 15 · Ejercicio final HTML
             </span>
