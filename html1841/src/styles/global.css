@@ -1447,3 +1447,395 @@ img{ max-width:100%; display:block; }
 /* Redondeo de esquinas */
 .table thead th:first-child{ border-top-left-radius: 14px; }
 .table thead th:last-child{ border-top-right-radius: 14px; }
+
+/* =========================================================
+   RESPONSIVE DESIGN — Mejoras para todos los dispositivos
+   ========================================================= */
+
+/* ===== TABLET (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+  /* Sidebar más estrecha en tablet */
+  :root {
+    --sidebar-w: 260px;
+    --sidebar-w-collapsed: 70px;
+  }
+
+  /* Contenido con menos padding */
+  .content {
+    padding: 1rem;
+  }
+
+  /* Textos ligeramente más pequeños */
+  .doc-hero h1 {
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+  }
+}
+
+/* ===== MÓVIL GRANDE (481px - 767px) ===== */
+@media (max-width: 767px) {
+  /* Layout en columna única */
+  .main-grid { 
+    grid-template-columns: 1fr !important; 
+  }
+  
+  .main-grid.is-collapsed { 
+    grid-template-columns: 1fr !important; 
+  }
+
+  /* Sidebar como menu superior en móvil */
+  .sidebar { 
+    position: sticky; 
+    top: 64px; 
+    padding: .8rem;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  /* Topbar más compacto */
+  .topbar-inner {
+    padding: .7rem .8rem;
+    gap: .8rem;
+  }
+
+  .brand {
+    font-size: .95rem;
+  }
+
+  /* Nav items más compactos en móvil */
+  .nav-item {
+    padding: .7rem .8rem;
+    gap: .6rem;
+  }
+
+  .nav-item span[aria-hidden="true"] {
+    width: 24px;
+    font-size: 1.1rem;
+  }
+
+  /* Contenido con menos espaciado */
+  .content {
+    padding: .8rem;
+  }
+
+  /* Doc pages más compactas */
+  .doc {
+    padding: .8rem;
+  }
+
+  .doc-hero {
+    padding: 1rem;
+  }
+
+  .doc-hero h1 {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+  }
+
+  .doc-section {
+    padding: 1rem;
+  }
+
+  /* Cards más pequeñas */
+  .card {
+    padding: 1rem;
+  }
+
+  /* Botones más compactos */
+  .btn {
+    padding: .7rem .9rem;
+    font-size: .95rem;
+  }
+
+  /* Resource grid en columna única */
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Topic summary en columna única */
+  .topic-summary__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Bonus grid en columna única */
+  .bonus__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Bonus links list más compacta */
+  .bonus-links__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== MÓVIL PEQUEÑO (≤ 480px) ===== */
+@media (max-width: 480px) {
+  /* Tipografía base más pequeña */
+  html {
+    font-size: 14px;
+  }
+
+  /* Topbar muy compacto */
+  .topbar-inner {
+    padding: .6rem;
+    gap: .6rem;
+  }
+
+  .brand {
+    font-size: .9rem;
+    gap: .4rem;
+  }
+
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Sidebar menu horizontal en móvil muy pequeño */
+  .sidebar .menu {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: .4rem;
+    padding-bottom: .5rem;
+  }
+
+  .nav-item {
+    flex: 0 0 auto;
+    min-width: 120px;
+    padding: .6rem .7rem;
+    text-align: center;
+  }
+
+  .nav-item .label {
+    font-size: .85rem;
+  }
+
+  /* Contenido muy compacto */
+  .content {
+    padding: .6rem;
+  }
+
+  .doc {
+    padding: .6rem;
+  }
+
+  .doc-hero {
+    padding: .9rem;
+  }
+
+  .doc-section,
+  .card {
+    padding: .9rem;
+  }
+
+  /* Títulos más pequeños */
+  .doc-hero h1 {
+    font-size: 1.4rem;
+    line-height: 1.2;
+  }
+
+  .doc-section h2 {
+    font-size: 1.1rem;
+  }
+
+  /* Media block en columna única siempre */
+  .media-block {
+    grid-template-columns: 1fr !important;
+    padding: 1rem;
+    gap: 1.2rem;
+  }
+
+  /* Botones de ancho completo en móvil pequeño */
+  .topic-summary__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer más compacto */
+  .footer {
+    padding: .8rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: .4rem;
+    text-align: center;
+  }
+
+  /* Tablas con scroll horizontal mejorado */
+  .table-wrap {
+    margin: 0 -0.6rem;
+    border-radius: 0;
+  }
+
+  .table {
+    min-width: 500px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px 10px;
+    font-size: .9rem;
+  }
+}
+
+/* ===== MÓVIL MUY PEQUEÑO (≤ 320px) ===== */
+@media (max-width: 320px) {
+  /* Tipografía aún más pequeña */
+  html {
+    font-size: 13px;
+  }
+
+  /* Espaciado mínimo */
+  .content,
+  .doc {
+    padding: .5rem;
+  }
+
+  .card,
+  .doc-section,
+  .doc-hero {
+    padding: .8rem;
+  }
+
+  /* Sidebar menu como scroll horizontal */
+  .sidebar {
+    padding: .6rem;
+  }
+
+  .sidebar .menu {
+    gap: .3rem;
+  }
+
+  .nav-item {
+    min-width: 100px;
+    padding: .5rem;
+    font-size: .8rem;
+  }
+
+  /* Títulos muy compactos */
+  .doc-hero h1 {
+    font-size: 1.2rem;
+  }
+
+  .brand {
+    font-size: .8rem;
+  }
+}
+
+/* ===== MEJORAS DE INTERACCIÓN TÁCTIL ===== */
+@media (hover: none) and (pointer: coarse) {
+  /* Aumentar área de toque en dispositivos táctiles */
+  .nav-item,
+  .btn,
+  .icon-btn {
+    min-height: 44px;
+  }
+
+  .nav-item {
+    padding: .8rem 1rem;
+  }
+
+  /* Eliminar hover effects en dispositivos táctiles */
+  .nav-item:hover,
+  .btn:hover,
+  .bonus-link:hover,
+  .bonus-item:hover,
+  .resource-card:hover {
+    transform: none;
+    background: initial;
+    border-color: initial;
+    box-shadow: initial;
+  }
+
+  /* Mantener solo focus states */
+  .nav-item:focus-visible,
+  .btn:focus-visible {
+    transform: translateY(-1px);
+  }
+}
+
+/* ===== LANDSCAPE EN MÓVILES ===== */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+  /* Topbar más compacto en landscape */
+  .topbar-inner {
+    padding: .5rem .8rem;
+  }
+
+  /* Sidebar con altura máxima en landscape */
+  .sidebar {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  /* Contenido con más padding lateral */
+  .content {
+    padding: .8rem 1.2rem;
+  }
+}
+
+/* ===== MODO ALTO CONTRASTE ===== */
+@media (prefers-contrast: high) {
+  .nav-item {
+    border-width: 2px;
+  }
+
+  .nav-item.active {
+    border-width: 3px;
+  }
+
+  .card,
+  .doc-section {
+    border: 2px solid rgba(31,41,55,.15);
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  /* Ocultar elementos de navegación */
+  .topbar,
+  .sidebar,
+  .footer,
+  .btn,
+  .topic-summary__actions {
+    display: none !important;
+  }
+
+  /* Layout simple para impresión */
+  .main-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  /* Colores para impresión */
+  .doc-hero,
+  .doc-section,
+  .card {
+    background: #fff !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+
+  /* Tipografía para impresión */
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000 !important;
+  }
+
+  h1 { font-size: 20pt; }
+  h2 { font-size: 16pt; }
+  h3 { font-size: 14pt; }
+
+  /* Saltos de página */
+  .doc-section {
+    page-break-inside: avoid;
+    margin-bottom: 20pt;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+}

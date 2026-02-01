@@ -343,13 +343,164 @@ export default function Tema1() {
           </div>
         </details>
       </section>
+      <section className="doc-section">
+  <h2> 3) Arquitectura de una página web</h2>
+
+  <p>
+    La <strong>arquitectura de una página web</strong> hace referencia a cómo se organiza,
+    estructura y conecta toda la información de un sitio web. No se trata solo del diseño
+    visual, sino de decidir <strong>qué páginas existen, cómo se relacionan entre sí y cómo
+    navega el usuario</strong> dentro del sitio.
+  </p>
+
+  <p>
+    Una buena arquitectura web es clave para:
+  </p>
+
+  <ul>
+    <li>Que el usuario encuentre la información fácilmente</li>
+    <li>Que la web sea clara, usable y coherente</li>
+    <li>Mejorar el posicionamiento SEO</li>
+    <li>Facilitar el mantenimiento y crecimiento del sitio</li>
+  </ul>
+
+  <details className="dd">
+    <summary>🏗️ Elementos básicos de la arquitectura web</summary>
+    <div className="dd-body">
+      <p>
+        Toda página web, independientemente de su tamaño, se construye a partir de una
+        estructura común:
+      </p>
+
+      <ul>
+        <li><strong>Inicio (Home):</strong> página principal y punto de entrada</li>
+        <li><strong>Páginas internas:</strong> servicios, contenidos, categorías…</li>
+        <li><strong>Navegación:</strong> menús, enlaces y rutas internas</li>
+        <li><strong>Contenido:</strong> textos, imágenes, vídeos, formularios</li>
+        <li><strong>Pie de página (footer):</strong> información secundaria y legal</li>
+      </ul>
+
+      <p>
+        Esta estructura permite que el usuario entienda rápidamente dónde está y qué puede
+        hacer dentro del sitio.
+      </p>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🧭 Organización jerárquica de las páginas</summary>
+    <div className="dd-body">
+      <p>
+        La arquitectura web suele organizarse de forma <strong>jerárquica</strong>, es decir,
+        de lo más general a lo más específico:
+      </p>
+
+      <ul>
+        <li><strong>Nivel 1:</strong> Página de inicio</li>
+        <li><strong>Nivel 2:</strong> Secciones principales (Servicios, Blog, Contacto…)</li>
+        <li><strong>Nivel 3:</strong> Subpáginas o contenidos concretos</li>
+      </ul>
+
+      <p>
+        Esta jerarquía ayuda tanto a los usuarios como a los buscadores a comprender la
+        estructura del sitio y a navegarlo con facilidad.
+      </p>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🧩 Arquitectura web aplicada a WordPress</summary>
+    <div className="dd-body">
+      <p>
+        En WordPress, la arquitectura web se construye principalmente mediante:
+      </p>
+
+      <ul>
+        <li><strong>Páginas:</strong> para contenidos fijos (Inicio, Contacto, Sobre mí)</li>
+        <li><strong>Entradas:</strong> para contenidos dinámicos (blog, noticias)</li>
+        <li><strong>Categorías y etiquetas:</strong> para organizar contenidos</li>
+        <li><strong>Menús:</strong> para definir la navegación principal</li>
+        <li><strong>Plantillas del tema:</strong> que controlan cómo se muestra cada tipo de página</li>
+      </ul>
+
+      <p>
+        WordPress permite crear una arquitectura flexible, escalable y fácil de modificar
+        sin necesidad de programar, siempre que se planifique bien desde el principio.
+      </p>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>⚠️ Errores comunes en la arquitectura de una web</summary>
+    <div className="dd-body">
+      <ul>
+        <li>Demasiadas páginas sin jerarquía clara</li>
+        <li>Menús confusos o sobrecargados</li>
+        <li>Contenidos duplicados o mal organizados</li>
+        <li>No pensar en el usuario, solo en el diseño</li>
+      </ul>
+
+      <p>
+        Una mala arquitectura hace que el usuario se pierda y abandone la web, aunque el
+        diseño sea atractivo.
+      </p>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🎯 Idea clave</summary>
+    <div className="dd-body">
+      <p>
+        <strong>Antes de diseñar una web, hay que pensar su estructura.</strong>
+        La arquitectura web es el esqueleto del sitio: si está bien planteada, todo lo demás
+        funciona mejor.
+      </p>
+    </div>
+  </details>
+
+  <div className="resource-section__head">
+    <h2 className="resource-section__title">Arquitectura web: cómo se estructura una página</h2>
+    <p className="resource-section__lead">
+      Recurso complementario para comprender cómo se organiza una página web antes de empezar
+      a diseñarla o desarrollarla.
+    </p>
+  </div>
+
+  <div className="bonus-links">
+    <ul className="bonus-links__list">
+      <li className="bonus-links__item">
+        <a
+          href="https://es.wix.com/blog/arquitectura-web"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bonus-links__link"
+        >
+          <span className="bonus-links__name">
+            Arquitectura web: guía básica para estructurar una web
+          </span>
+          <span className="bonus-links__desc">
+            Artículo divulgativo que explica de forma sencilla qué es la arquitectura web,
+            cómo se organiza la información de un sitio y por qué es fundamental planificar
+            la estructura antes de empezar a crear una página web.
+          </span>
+        </a>
+      </li>
+    </ul>
+
+    <p className="bonus-links__note">
+      💡 <strong>Consejo:</strong> No es necesario memorizar el contenido, pero sí entender
+      la idea principal: <em>una buena web empieza por una buena estructura</em>.
+    </p>
+  </div>
+</section>
+
 
       {/* ===================================================== */}
       <section id="color" className="doc-section">
-        <h2>3) Color: armonía, contraste y significado</h2>
+        <h2>4) Color: armonía, contraste y significado</h2>
 
         <details open className="dd">
-          <summary>3.1 · El color guía, resalta y crea identidad</summary>
+          <summary>4.1 · El color guía, resalta y crea identidad</summary>
           <div className="dd-body">
             <p>
               El color no está “para que quede bonito”. Está para <strong>guiar</strong> la mirada, <strong>resaltar</strong>
@@ -364,7 +515,7 @@ export default function Tema1() {
         </details>
 
         <details className="dd">
-          <summary>3.2 · Armonía vs contraste</summary>
+          <summary>4.2 · Armonía vs contraste</summary>
           <div className="dd-body">
             <ul>
               <li><strong>Armonía:</strong> colores relacionados que se sienten “del mismo mundo”.</li>
@@ -376,7 +527,7 @@ export default function Tema1() {
         </details>
 
         <details className="dd">
-          <summary>3.3 · Significado del color </summary>
+          <summary>4.3 · Significado del color </summary>
           <div className="dd-body">
             <p>
               Los colores sugieren sensaciones, pero depende del contexto cultural y del conjunto. Lo importante es que
@@ -405,10 +556,10 @@ export default function Tema1() {
 
       {/* ===================================================== */}
       <section id="tipografia" className="doc-section">
-        <h2>4) Tipografía: legibilidad y jerarquía</h2>
+        <h2>5) Tipografía: legibilidad y jerarquía</h2>
 
         <details open className="dd">
-          <summary>4.1 · Regla simple: se lee o se abandona</summary>
+          <summary>5.1 · Regla simple: se lee o se abandona</summary>
           <div className="dd-body">
             <p>
               La tipografía es una de las razones más comunes por las que una web “cansa”. Títulos y cuerpo de texto no
@@ -436,10 +587,10 @@ export default function Tema1() {
 
       {/* ===================================================== */}
       <section id="espaciado" className="doc-section">
-        <h2>5) Espaciado y composición</h2>
+        <h2>6) Espaciado y composición</h2>
 
         <details open className="dd">
-          <summary>5.1 · El espacio en blanco es diseño</summary>
+          <summary>6.1 · El espacio en blanco es diseño</summary>
           <div className="dd-body">
             <p>
               El “aire” entre elementos ayuda a entender la estructura. Sin espacio, todo compite por la atención y el
@@ -467,10 +618,10 @@ export default function Tema1() {
 
       {/* ===================================================== */}
       <section id="elementos" className="doc-section">
-        <h2>6) Colocación de elementos: guiar la mirada</h2>
+        <h2>7) Colocación de elementos: guiar la mirada</h2>
 
         <details open className="dd">
-          <summary>6.1 · Diseñar es decidir qué se ve primero</summary>
+          <summary>7.1 · Diseñar es decidir qué se ve primero</summary>
           <div className="dd-body">
             <p>
               La composición organiza la atención. Un usuario escanea; no lee como un libro. Tu diseño tiene que
@@ -498,10 +649,10 @@ export default function Tema1() {
 
       {/* ===================================================== */}
       <section id="mobile" className="doc-section">
-        <h2>7) Mobile first</h2>
+        <h2>8) Mobile first</h2>
 
         <details open className="dd">
-          <summary>7.1 · Primero móvil, luego escritorio (y tiene sentido)</summary>
+          <summary>8.1 · Primero móvil, luego escritorio (y tiene sentido)</summary>
           <div className="dd-body">
             <p>
               Mucha gente entra desde el móvil, con pantalla pequeña y poca paciencia. Mobile first significa diseñar
@@ -524,10 +675,10 @@ export default function Tema1() {
 
       {/* ===================================================== */}
       <section id="inspiracion" className="doc-section">
-        <h2>8) Páginas y herramientas para inspirarte (sin copiar)</h2>
+        <h2>9) Páginas y herramientas para inspirarte (sin copiar)</h2>
 
         <details open className="dd">
-          <summary>8.1 · Paletas de color y contraste</summary>
+          <summary>9.1 · Paletas de color y contraste</summary>
           <div className="dd-body">
             <ul>
               <li>
@@ -559,7 +710,7 @@ export default function Tema1() {
         </details>
 
         <details className="dd">
-  <summary>8.2 · Tipografía y jerarquía (cómo elegirla y cómo se usa en HTML)</summary>
+  <summary>9.2 · Tipografía y jerarquía (cómo elegirla y cómo se usa en HTML)</summary>
   <div className="dd-body">
     <p>
       La tipografía no es “qué letra queda bonita”. Es <strong>legibilidad</strong> + <strong>jerarquía</strong>:
@@ -751,7 +902,7 @@ p{ max-width: 70ch; }`}</code></pre>
 
 
        <details className="dd">
-  <summary>8.3 · Inspiración de diseño (mirar con criterio)</summary>
+  <summary>9.3 · Inspiración de diseño (mirar con criterio)</summary>
   <div className="dd-body">
     <p>
       Buscar inspiración es buena idea, pero hay que hacerlo con <strong>criterio</strong>:
@@ -868,7 +1019,7 @@ p{ max-width: 70ch; }`}</code></pre>
 
       {/* ===================================================== */}
       <section id="practica" className="doc-section">
-        <h2>9) Práctica sin código</h2>
+        <h2>10) Práctica sin código</h2>
 
         <details open className="dd">
           <summary>Ejercicio 1 · “Radiografía” de una web (5 minutos)</summary>
@@ -906,7 +1057,7 @@ p{ max-width: 70ch; }`}</code></pre>
 
       {/* ===================================================== */}
       <section id="cierre" className="doc-section">
-        <h2>10) Cierre y checklist</h2>
+        <h2>11) Cierre y checklist</h2>
 
         <details open className="dd">
           <summary>Checklist final</summary>

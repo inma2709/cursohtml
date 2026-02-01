@@ -107,6 +107,172 @@ export default function Tema2() {
           </div>
         </details>
       </section>
+      <section className="doc-section">
+  <h2>Introducción a Stitch (Google)</h2>
+
+  <p>
+    Antes de empezar a construir una web en WordPress, es fundamental <strong>pensar la web</strong>:
+    qué secciones tendrá, cómo se relacionan entre sí y qué verá primero el usuario. Para trabajar
+    esta fase previa utilizamos <strong>Stitch</strong>, una herramienta experimental de Google que
+    nos ayuda a crear <strong>prototipos de interfaces web a partir de texto</strong>.
+  </p>
+
+  <p>
+    Stitch no sustituye a WordPress ni al editor de bloques. Su función es anterior: nos permite
+    pasar de una idea a un diseño claro y ordenado en pocos minutos. De esta forma, cuando entramos
+    en WordPress, <strong>ya sabemos qué vamos a construir y por qué</strong>.
+  </p>
+
+  <details className="dd">
+    <summary>🤔 ¿Qué es Stitch exactamente?</summary>
+    <div className="dd-body">
+      <p>
+        Stitch es una herramienta de <strong>diseño asistido por Inteligencia Artificial</strong>.
+        A partir de una descripción escrita (prompt), genera:
+      </p>
+
+      <ul>
+        <li>Pantallas de una web o aplicación</li>
+        <li>Secciones bien organizadas</li>
+        <li>Componentes visuales como cabeceras, tarjetas, botones o listados</li>
+      </ul>
+
+      <p>
+        El resultado es un <strong>prototipo visual editable</strong>, no una web real publicada.
+        Stitch trabaja en la fase de <strong>diseño y arquitectura</strong>, no en la de desarrollo
+        final.
+      </p>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🚫 ¿Qué NO es Stitch?</summary>
+    <div className="dd-body">
+      <p>Es importante tenerlo claro desde el principio:</p>
+
+      <ul>
+        <li>❌ No es WordPress</li>
+        <li>❌ No es un editor de bloques</li>
+        <li>❌ No es una web publicada</li>
+        <li>❌ No es una herramienta de diseño profesional como Figma</li>
+      </ul>
+
+      <p>
+        Stitch es un <strong>paso previo</strong>, pensado para pensar, probar y ordenar ideas antes
+        de empezar a construir.
+      </p>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🧩 ¿Para qué vamos a usar Stitch en este proyecto?</summary>
+    <div className="dd-body">
+      <p>
+        En el primer proyecto del manual vamos a crear una <strong>landing page de recetas saludables</strong>.
+        Utilizaremos Stitch para:
+      </p>
+
+      <ul>
+        <li>Definir la estructura general de la página</li>
+        <li>Decidir qué secciones tendrá la landing</li>
+        <li>Ver cómo se organiza el contenido en una sola página</li>
+      </ul>
+
+      <p>
+        Además, nos ayudará a entender conceptos clave como:
+      </p>
+
+      <ul>
+        <li><strong>Hero</strong></li>
+        <li><strong>Secciones</strong></li>
+        <li><strong>Tarjetas (cards)</strong></li>
+        <li><strong>Llamadas a la acción (CTA)</strong></li>
+      </ul>
+
+      <p>
+        Este diseño servirá como guía para construir la misma landing en WordPress utilizando
+        el editor de bloques.
+      </p>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🔄 Cómo encaja Stitch en el flujo de trabajo</summary>
+    <div className="dd-body">
+      <p>
+        El flujo de trabajo que seguiremos en el manual será el siguiente:
+      </p>
+
+      <ul>
+        <li><strong>Idea:</strong> qué web queremos hacer</li>
+        <li><strong>Stitch:</strong> diseñamos la estructura y el aspecto general</li>
+        <li><strong>WordPress:</strong> construimos la web real con bloques</li>
+      </ul>
+
+      <p>
+        De forma visual:
+      </p>
+
+      <p>
+        <strong>Idea → Stitch (pensar y ordenar) → WordPress (construir)</strong>
+      </p>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>✅ Ventajas de usar Stitch como alumnado</summary>
+    <div className="dd-body">
+      <ul>
+        <li>Reduce la frustración inicial</li>
+        <li>Ayuda a entender la arquitectura de una web</li>
+        <li>Evita empezar “a ciegas” en WordPress</li>
+        <li>Permite equivocarse rápido y sin consecuencias</li>
+        <li>Facilita el trabajo en equipo y la explicación de ideas</li>
+      </ul>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🎓 Qué aprenderás gracias a Stitch</summary>
+    <div className="dd-body">
+      <p>
+        Aunque Stitch no sea WordPress, te ayudará a aprender:
+      </p>
+
+      <ul>
+        <li>A pensar una web antes de crearla</li>
+        <li>A estructurar contenidos de forma lógica</li>
+        <li>A diferenciar diseño, contenido y funcionalidad</li>
+        <li>A trabajar como se hace en proyectos reales</li>
+      </ul>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>⚠️ Importante antes de continuar</summary>
+    <div className="dd-body">
+      <p>
+        El diseño que genera Stitch <strong>no se copia directamente en WordPress</strong>.
+        Se utiliza como referencia visual y estructural.
+      </p>
+
+      <p>
+        En las siguientes secciones del manual:
+      </p>
+
+      <ul>
+        <li>Crearemos la landing paso a paso en WordPress</li>
+        <li>Replicaremos las secciones vistas en Stitch</li>
+        <li>Usaremos únicamente bloques y herramientas de WordPress</li>
+      </ul>
+
+      <p>
+        🎯 <strong>Objetivo de esta fase:</strong> aprender a pensar una web antes de construirla.
+      </p>
+    </div>
+  </details>
+</section>
+
 
       {/* ===================================================== */}
       <section id="sites" className="doc-section">

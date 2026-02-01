@@ -53,6 +53,7 @@ export default function TemaImagenesPorURL() {
           <h2>Contenido</h2>
           <ol>
             <li><a href="#conceptos">1. Conceptos clave: URL, CDN, hotlinking y formatos</a></li>
+            
             <li><a href="#insertar-html">2. Insertar una imagen por URL en HTML</a></li>
             <li><a href="#insertar-react">3. Insertar una imagen por URL en React</a></li>
             <li><a href="#buenas-practicas">4. Nivel pro: rendimiento, accesibilidad y seguridad</a></li>
@@ -60,9 +61,11 @@ export default function TemaImagenesPorURL() {
             <li><a href="#imgur">6. Imgur: enlaces y buenas prácticas</a></li>
             <li><a href="#uploadcare">7. Uploadcare: CDN + transformaciones</a></li>
             <li><a href="#random">8. Imágenes random para prototipos (Picsum, Placeholders)</a></li>
-            <li><a href="#errores">9. Errores típicos y cómo solucionarlos</a></li>
-            <li><a href="#ejercicio">10. Ejercicio guiado (desde cero)</a></li>
-            <li><a href="#checklist">11. Checklist profesional</a></li>
+            <li><a href="#bancos">9. Bancos de imágenes gratuitos y de pago</a></li>
+            
+            <li><a href="#errores">10. Errores típicos y cómo solucionarlos</a></li>
+            <li><a href="#ejercicio">11. Ejercicio guiado (desde cero)</a></li>
+            <li><a href="#checklist">12. Checklist profesional</a></li>
           </ol>
         </nav>
 
@@ -533,10 +536,170 @@ https://ucarecdn.com/UUID_DE_TU_ARCHIVO/-/resize/900x/`}</code>
             </div>
           </details>
         </section>
+<section className="doc-section" id ="bancos">
+  <h2>8) Bancos de imágenes: dónde buscar imágenes para tu web</h2>
+
+  <p>
+    Cuando creamos una página web no solo trabajamos con textos y bloques, también con
+    <strong>imágenes</strong>. Elegir bien las imágenes es fundamental para que una web se vea
+    profesional, clara y cuidada. Pero no vale cualquier imagen que encontremos en internet.
+  </p>
+
+  <p>
+    Por eso, en este manual vamos a utilizar <strong>bancos de imágenes gratuitos y legales</strong>,
+    que nos permiten usar fotografías sin problemas de derechos de autor.
+  </p>
+
+  <details className="dd">
+    <summary>🥇 Pexels (el mejor para empezar)</summary>
+    <div className="dd-body">
+      <p>
+        <strong>Pexels</strong> es el banco de imágenes que utilizaremos principalmente en clase.
+      </p>
+
+      <p>
+        🔗 <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer">https://www.pexels.com</a>
+      </p>
+
+      <p><strong>¿Por qué lo usamos en clase?</strong></p>
+
+      <ul>
+        <li>Imágenes gratuitas</li>
+        <li>Uso comercial permitido</li>
+        <li>No requiere atribución</li>
+        <li>Muy buena calidad</li>
+        <li>Ideal para temáticas de comida y familias</li>
+      </ul>
+
+      <p><strong>Búsquedas recomendadas:</strong></p>
+      <ul>
+        <li><code>healthy food</code></li>
+        <li><code>family cooking</code></li>
+        <li><code>vegetarian food</code></li>
+        <li><code>healthy breakfast</code></li>
+      </ul>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🥈 Unsplash</summary>
+    <div className="dd-body">
+      <p>
+        <strong>Unsplash</strong> es un banco de imágenes muy popular por su estilo visual.
+      </p>
+
+      <p>
+        🔗 <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">https://unsplash.com</a>
+      </p>
+
+      <p><strong>Ventajas:</strong></p>
+      <ul>
+        <li>Fotos muy estéticas</li>
+        <li>Estilo moderno y profesional</li>
+        <li>Perfecto para imágenes grandes</li>
+      </ul>
+
+      <p><strong>⚠️ Criterio didáctico:</strong></p>
+      <p>
+        A veces las imágenes pueden resultar demasiado “publicitarias” o poco realistas.
+        Úsalo con criterio.
+      </p>
+
+      <p><strong>Úsalo especialmente para:</strong></p>
+      <ul>
+        <li>Hero</li>
+        <li>Galerías</li>
+      </ul>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🥉 Pixabay</summary>
+    <div className="dd-body">
+      <p>
+        <strong>Pixabay</strong> es un banco de imágenes muy amplio y fácil de usar.
+      </p>
+
+      <p>
+        🔗 <a href="https://pixabay.com" target="_blank" rel="noopener noreferrer">https://pixabay.com</a>
+      </p>
+
+      <p><strong>Ventajas:</strong></p>
+      <ul>
+        <li>Gran cantidad de imágenes</li>
+        <li>Incluye iconos e ilustraciones</li>
+        <li>Interfaz sencilla</li>
+      </ul>
+
+      <p><strong>Uso recomendado:</strong></p>
+      <p>
+        Utilízalo como apoyo cuando no encuentres una imagen adecuada en Pexels o Unsplash.
+      </p>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🔹 Iconos para categorías</summary>
+    <div className="dd-body">
+      <p>
+        Además de fotografías, en una web también usamos <strong>iconos</strong>, por ejemplo,
+        para representar categorías o secciones.
+      </p>
+
+      <p><strong>Flaticon</strong></p>
+      <p>
+        🔗 <a href="https://www.flaticon.com" target="_blank" rel="noopener noreferrer">https://www.flaticon.com</a>
+      </p>
+
+      <p><strong>Reglas importantes:</strong></p>
+      <ul>
+        <li>Usar iconos gratuitos</li>
+        <li>Elegir iconos del mismo estilo</li>
+        <li>Indicar autor si lo exige la licencia (o elegir “sin atribución”)</li>
+      </ul>
+
+      <p><strong>Alternativas recomendadas:</strong></p>
+      <ul>
+        <li>Heroicons (estilo limpio y moderno)</li>
+        <li>Bootstrap Icons</li>
+      </ul>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🚫 Lo que NO se puede usar</summary>
+    <div className="dd-body">
+      <p>
+        Aunque estén en internet, <strong>no todas las imágenes se pueden usar libremente</strong>.
+      </p>
+
+      <ul>
+        <li>❌ Google Imágenes</li>
+        <li>❌ Pinterest</li>
+        <li>❌ Instagram</li>
+        <li>❌ Fotos de webs ajenas</li>
+      </ul>
+
+      <p>
+        Usar imágenes sin permiso puede traer problemas legales y demuestra poca profesionalidad.
+      </p>
+    </div>
+  </details>
+
+  <details className="dd">
+    <summary>🧠 Frase clave para el alumnado</summary>
+    <div className="dd-body">
+      <p>
+        <strong>No todas las imágenes de internet se pueden usar.</strong><br />
+        Un buen diseñador sabe dónde buscar.
+      </p>
+    </div>
+  </details>
+</section>
 
         {/* 8) RANDOM */}
         <section className="doc-section" id="random">
-          <h2>8) Imágenes random para prototipos (tipo “random”)</h2>
+          <h2>9) Imágenes random para prototipos (tipo “random”)</h2>
 
          <details className="dd" open>
   <summary>Opción recomendada: imagen random con Picsum (muy simple)</summary>
@@ -641,9 +804,9 @@ https://ucarecdn.com/UUID_DE_TU_ARCHIVO/-/resize/900x/`}</code>
           
         </section>
 
-        {/* 9) ERRORES */}
+        {/* 10) ERRORES */}
         <section className="doc-section" id="errores">
-          <h2>9) Errores típicos y cómo solucionarlos</h2>
+          <h2>10) Errores típicos y cómo solucionarlos</h2>
 
           <details className="dd" open>
             <summary>La imagen “no carga” (404/403)</summary>
