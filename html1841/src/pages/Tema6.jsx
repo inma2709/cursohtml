@@ -205,6 +205,7 @@ export default function Tema6Head() {
   const total = questions.length;
 
   return (
+    <>
     <main className="doc" id="contenido">
       {/* HERO */}
       <section className="doc-hero" aria-labelledby="tema6-title">
@@ -874,10 +875,11 @@ body{
         </div>
       </section>
       <div className="doc-next">
-  <Link className="btn btn-primary" to="/tema/7">
-    Siguiente tema <span aria-hidden="true">→</span>
-  </Link>
-</div>
+        <Link className="btn btn-primary" to="/tema/7">
+          Siguiente tema <span aria-hidden="true">→</span>
+        </Link>
+      </div>
     </main>
+    </>
   );
 }

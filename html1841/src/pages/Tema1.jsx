@@ -33,9 +33,25 @@ export default function Tema1() {
 
   // useEffect para el título de la página
   useEffect(() => {
-    document.title = "UF1841 · Tema 1 · Diseño web";
+    document.title = "Diseño Web y Usabilidad | Tema 1 Curso HTML UF1841";
   }, []);
+  
   return (
+    <>
+      <SEOHead 
+        title="Diseño Web y Usabilidad - Fundamentos del Desarrollo Web"
+        description="Aprende los principios fundamentales del diseño web y usabilidad en nuestro curso HTML. Conceptos esenciales para crear páginas web efectivas y accesibles."
+        keywords={[
+          'diseño web',
+          'usabilidad web', 
+          'principios diseño',
+          'desarrollo web',
+          'ux web',
+          'accesibilidad web'
+        ]}
+        temaNumber="1"
+        canonicalUrl="https://tu-dominio.com/tema1"
+      />
     <div className="doc">
       <header className="doc-hero">
         <p className="doc-kicker">Tema 1 · Diseño web</p>
@@ -1144,5 +1160,6 @@ p{ max-width: 70ch; }`}</code></pre>
 </section>
 
     </div>
+    </>
   );
 }

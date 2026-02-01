@@ -3,7 +3,6 @@
 // 📌 Imagen sugerida:
 // /public/img/tema4/estructura-html5.png
 import { Link } from "react-router-dom";
-import { useEffect, useMemo } from "react";
 
 
 export default function Tema4() {

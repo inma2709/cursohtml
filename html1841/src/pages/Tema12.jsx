@@ -7,12 +7,12 @@ export default function TemaImagenesPorURL() {
   }, []);
 
   // Para la demo de "random" sin APIs con key: cambiamos un parámetro "seed"
-  const [seed, setSeed] = useState(() => Date.now());
+  const [_seed, _setSeed] = useState(() => Date.now());
 
-  const randomPicsum = useMemo(() => {
+  const _randomPicsum = useMemo(() => {
     // Picsum = imágenes aleatorias libres para demos
-    return `https://picsum.photos/seed/${seed}/900/520`;
-  }, [seed]);
+    return `https://picsum.photos/seed/${_seed}/900/520`;
+  }, [_seed]);
 
   const randomPlaceholders = useMemo(
     () => [

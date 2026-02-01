@@ -90,8 +90,11 @@ export default function Tema10FormulariosHTML() {
 
   const questions = useMemo(() => {
     const copy = [...rawQuestions];
+    // Usamos un seed fijo para el shuffle para que sea predecible
+    let seed = 1;
     for (let i = copy.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
+      seed = (seed * 9301 + 49297) % 233280;
+      const j = Math.floor((seed / 233280) * (i + 1));
       [copy[i], copy[j]] = [copy[j], copy[i]];
     }
     return copy;

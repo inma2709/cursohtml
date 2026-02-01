@@ -6,8 +6,6 @@ export default function TemaFooterHTML() {
     document.title = "UF1841 · Tema · Footer en HTML";
   }, []);
 
-  const year = new Date().getFullYear();
-
   return (
     <main className="doc" id="contenido">
       {/* HERO */}
