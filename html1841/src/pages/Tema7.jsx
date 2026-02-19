@@ -944,20 +944,79 @@ export default function Tema7() {
           </div>
         </details>
 
-        <details className="dd">
-          <summary>🔒 target=&quot;_blank&quot;: seguridad recomendada</summary>
-          <div className="dd-body">
-            <pre>
-              <code>{`<a href="https://ejemplo.com" target="_blank" rel="noopener noreferrer">
+       <details className="dd">
+  <summary>🔒 target="_blank": seguridad recomendada</summary>
+  <div className="dd-body">
+
+    <p>
+      El atributo <code>target="_blank"</code> indica al navegador que el enlace debe abrirse en una 
+      nueva pestaña o ventana. Es muy utilizado cuando enlazamos a recursos externos, 
+      documentación oficial o páginas que no forman parte de nuestro dominio.
+    </p>
+
+    <p>
+      Sin embargo, abrir una nueva pestaña no es solo una cuestión de experiencia de usuario.
+      También tiene implicaciones de <strong>seguridad</strong>.
+    </p>
+
+    <pre>
+      <code>{`<a href="https://ejemplo.com" 
+   target="_blank" 
+   rel="noopener noreferrer">
   Abrir en nueva pestaña
 </a>`}</code>
-            </pre>
+    </pre>
 
-            <div className="callout warn">
-              Si usas <code>target="_blank"</code>, añade <code>rel="noopener noreferrer"</code> para reducir riesgos (tabnabbing).
-            </div>
-          </div>
-        </details>
+    <h4>¿Qué problema puede existir?</h4>
+
+    <p>
+      Cuando usamos <code>target="_blank"</code> sin protección adicional,
+      la nueva página puede acceder al objeto <code>window.opener</code>, 
+      es decir, puede tener una referencia a la página original.
+    </p>
+
+    <p>
+      Esto puede permitir ataques conocidos como <strong>tabnabbing</strong>,
+      donde la pestaña abierta modifica o redirige la pestaña original
+      a un sitio malicioso sin que el usuario lo perciba.
+    </p>
+
+    <div className="callout warn">
+      Si usas <code>target="_blank"</code>, añade siempre 
+      <code>rel="noopener noreferrer"</code> para evitar que la nueva pestaña 
+      tenga acceso a la página original.
+    </div>
+
+    <h4>¿Qué hace cada valor de <code>rel</code>?</h4>
+
+    <ul>
+      <li>
+        <strong>noopener</strong>: impide que la nueva página pueda acceder a 
+        <code>window.opener</code>.
+      </li>
+      <li>
+        <strong>noreferrer</strong>: además de lo anterior, evita que se envíe 
+        información de referencia (referrer) al sitio externo.
+      </li>
+    </ul>
+
+    <h4>Buenas prácticas profesionales</h4>
+
+    <ul>
+      <li>Usar <code>target="_blank"</code> solo cuando tenga sentido.</li>
+      <li>No abusar de nuevas pestañas sin criterio.</li>
+      <li>Informar visualmente al usuario si un enlace abre fuera del sitio.</li>
+      <li>Aplicar siempre <code>rel="noopener noreferrer"</code> en enlaces externos.</li>
+    </ul>
+
+    <div className="callout tip">
+      En proyectos reales, esta práctica no es opcional: forma parte de los estándares
+      de desarrollo seguro y demuestra criterio profesional.
+    </div>
+
+  </div>
+</details>
+
 
         <details className="dd">
           <summary>🧠 UX: texto de enlace útil</summary>
@@ -1008,47 +1067,88 @@ export default function Tema7() {
           </div>
         </details>
 
-        <details className="dd">
-          <summary>Uso de comentarios para explicar ejercicios</summary>
-          <div className="dd-body">
-            <p>
-              En este manual vamos a utilizar los comentarios para <strong>guiar al alumno dentro de los ejercicios</strong>,
-              explicando qué debe hacerse en cada parte del código.
-            </p>
+      <details className="dd">
+  <summary>Comentarios en código: criterio profesional</summary>
+  <div className="dd-body">
 
-            <pre>
-              <code>{`<!--
-  EJERCICIO:
-  Añade aquí un título principal usando <h1>
-  El texto debe describir el contenido de la página
+    <p>
+      En entornos profesionales, los comentarios no se utilizan para describir lo obvio,
+      sino para explicar la <strong>intención, decisiones técnicas y contexto</strong>
+      que no se deducen directamente leyendo el código.
+    </p>
+
+    <p>
+      Un buen comentario responde a la pregunta:
+      <strong>¿Por qué se ha hecho esto así?</strong>  
+      No simplemente <strong>¿qué hace esto?</strong>.
+    </p>
+
+    <pre>
+      <code>{`<!-- 
+  Sección principal de la página.
+  El <h1> debe ser único y describir el propósito del documento.
+  Mejora la accesibilidad y el SEO.
 -->
 
-<h1></h1>`}</code>
-            </pre>
+<h1>Manual de HTML y CSS</h1>`}</code>
+    </pre>
 
-            <p>De esta forma, el propio archivo HTML se convierte en un documento autoexplicativo.</p>
+    <div className="callout tip">
+      Un comentario profesional explica intención, decisiones y contexto, no repite lo que ya se ve en el código.
+    </div>
 
-            <div className="callout tip">Leer comentarios bien escritos es parte del aprendizaje profesional.</div>
-          </div>
-        </details>
+    <h4>Cuándo usar comentarios</h4>
 
-        <details className="dd">
-          <summary>¿Por qué los comentarios son importantes?</summary>
-          <div className="dd-body">
-            <p>
-              Aunque el navegador los ignora, los comentarios son esenciales para las personas que leen el código.
-            </p>
+    <ul>
+      <li>Para documentar decisiones de arquitectura.</li>
+      <li>Para advertir sobre posibles efectos secundarios.</li>
+      <li>Para explicar soluciones no evidentes.</li>
+      <li>Para marcar bloques importantes o secciones clave.</li>
+    </ul>
 
-            <ul>
-              <li>Explican la intención del ejercicio</li>
-              <li>Ayudan a entender estructuras complejas</li>
-              <li>Facilitan la corrección y revisión</li>
-              <li>Mejoran el trabajo en equipo</li>
-            </ul>
+  </div>
+</details>
 
-            <p>Un código sin comentarios puede funcionar, pero es mucho más difícil de entender.</p>
-          </div>
-        </details>
+<details className="dd">
+  <summary>Errores comunes al comentar código</summary>
+  <div className="dd-body">
+
+    <p>
+      No todos los comentarios aportan valor. En muchos casos, un comentario mal escrito
+      añade ruido en lugar de claridad.
+    </p>
+
+    <pre>
+      <code>{`<!-- Mal comentario -->
+<h1>Título</h1> <!-- Esto es un título -->
+
+<!-- Comentario profesional -->
+<!-- Título principal único del documento -->
+<h1>Manual de HTML y CSS</h1>`}</code>
+    </pre>
+
+    <h4>Evita:</h4>
+
+    <ul>
+      <li>Describir lo evidente.</li>
+      <li>Duplicar información que ya es clara en el código.</li>
+      <li>Escribir comentarios demasiado largos y confusos.</li>
+      <li>Dejar comentarios desactualizados.</li>
+    </ul>
+
+    <p>
+      Un código bien estructurado puede necesitar pocos comentarios.
+      Un código complejo o con decisiones técnicas importantes sí debe estar documentado.
+    </p>
+
+    <div className="callout warn">
+      Un comentario incorrecto es peor que no tener comentario, porque genera
+      confusión y dificulta el mantenimiento.
+    </div>
+
+  </div>
+</details>
+
 
         <details className="dd">
           <summary>Buenas prácticas al comentar en HTML</summary>
@@ -1072,39 +1172,96 @@ export default function Tema7() {
           </div>
         </details>
 
-        <details className="dd">
-          <summary>Idea clave para el manual</summary>
-          <div className="dd-body">
-            <p>En este curso, los comentarios no son decoración: son parte activa del proceso de aprendizaje.</p>
-            <p>Aprender a comentar bien el código es un paso imprescindible para escribir HTML profesional.</p>
-          </div>
-        </details>
+      
       </section>
-      {/* 8) ASIDE */}
+    {/* 8) ASIDE */}
 <section className="doc-section" id="s1-7">
   <details className="dd">
-    <summary>8) &lt;aside&gt;: contenido complementario</summary>
+    <summary>8) &lt;aside&gt;: contenido complementario (no es “una barra lateral”)</summary>
     <div className="dd-body">
+
       <p>
-        <code>&lt;aside&gt;</code> contiene información relacionada pero no esencial.
+        El elemento <code>&lt;aside&gt;</code> representa contenido relacionado
+        con el contenido principal, pero que no forma parte esencial del flujo
+        del documento.
+      </p>
+
+      <div className="callout">
+        <strong>Importante:</strong> <code>&lt;aside&gt;</code> es un elemento 
+        <em> semántico</em>, no un elemento visual.  
+        No significa automáticamente “barra lateral”.
+      </div>
+
+      <h4>¿Qué significa realmente?</h4>
+
+      <p>
+        Significa que el contenido está vinculado al tema principal,
+        pero puede leerse de forma independiente sin romper la comprensión.
       </p>
 
       <ul>
-        <li>Notas</li>
+        <li>Notas aclaratorias</li>
+        <li>Información adicional</li>
         <li>Enlaces relacionados</li>
         <li>Publicidad contextual</li>
-        <li>Contenido secundario</li>
+        <li>Biografía del autor</li>
+        <li>Citas destacadas</li>
       </ul>
+
+      <h4>Ejemplo básico</h4>
 
       <pre>
         <code>{`<aside>
-  <h4>?Sabías que...?</h4>
+  <h4>¿Sabías que...?</h4>
   <p>HTML5 se publicó oficialmente en 2014.</p>
 </aside>`}</code>
       </pre>
+
+      <h4>Entonces… ¿por qué muchas veces aparece como barra lateral?</h4>
+
+      <p>
+        Porque tradicionalmente el contenido secundario se coloca visualmente
+        a un lado del contenido principal mediante CSS (con Flexbox o Grid).
+        Pero eso es una decisión de diseño, no una obligación del elemento.
+      </p>
+
+      <div className="callout tip">
+        La posición visual la decide CSS.  
+        La función semántica la define HTML.
+      </div>
+
+      <h4>Diferencia clave que debe entender un desarrollador</h4>
+
+      <ul>
+        <li>
+          <strong>HTML</strong> define el significado del contenido.
+        </li>
+        <li>
+          <strong>CSS</strong> define dónde y cómo se muestra.
+        </li>
+      </ul>
+
+      <p>
+        Un <code>&lt;aside&gt;</code> puede estar:
+      </p>
+
+      <ul>
+        <li>En una columna lateral</li>
+        <li>Dentro de un artículo</li>
+        <li>Debajo del contenido principal</li>
+        <li>En una tarjeta secundaria</li>
+      </ul>
+
+      <div className="callout warn">
+        Usar <code>&lt;aside&gt;</code> solo porque “está a la derecha” 
+        es un error conceptual.  
+        Debe usarse cuando el contenido sea complementario.
+      </div>
+
     </div>
   </details>
 </section>
+
 
 {/* ===================================================== */}
 {/* 9) FOOTER */}

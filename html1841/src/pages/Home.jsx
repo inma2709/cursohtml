@@ -162,8 +162,8 @@ export default function Home() {
             <div className="media-block__content">
               <p>
                 <strong>Inma Contreras</strong>, docente especializada en <strong>desarrollo web y HTML</strong>. 
-                Este curso está diseñado según los estándares de los certificados <strong>IFCD0210</strong> e 
-                <strong>IFCD0110</strong>, garantizando una formación profesional y práctica.
+                Este curso está diseñado según los estándares de los certificados <strong>IFCD0210</strong> y   
+                <strong> IFCD0110</strong>,  garantizando una formación profesional y práctica.
               </p>
               
               <p>
@@ -226,7 +226,7 @@ export default function Home() {
             <summary>Mi experiencia como docente en certificados de profesionalidad</summary>
             <div className="dd-body">
               <p>
-                Como <strong>docente acreditada en formación para el empleo</strong>, he impartido numerosos cursos 
+                Como <strong>docente acreditada en formación para el empleo</strong>, he impartido  cursos 
                 de <strong>IFCD0210</strong> e <strong>IFCD0110</strong>, adaptando la metodología a las necesidades 
                 específicas de personas en búsqueda activa de empleo y trabajadores en activo.
               </p>
@@ -239,10 +239,7 @@ export default function Home() {
                 <li><strong>Certificación oficial:</strong> Preparación para las pruebas de competencia</li>
               </ul>
 
-              <div className="callout">
-                <strong>Tasa de éxito:</strong> 95% de alumnos certificados en primera convocatoria<br />
-                <strong>Inserción laboral:</strong> 78% encuentran empleo en los 6 meses siguientes
-              </div>
+              
             </div>
           </details>
         </section>
@@ -296,33 +293,12 @@ export default function Home() {
           <h2>Salidas Profesionales y Empleabilidad</h2>
           
           <div className="callout tip">
-            <strong>Los certificados IFCD0210 e IFCD0110 son los más demandados</strong> en el sector tecnológico español, 
-            con una empleabilidad superior al 85% según datos del SEPE.
+            <strong>Los certificados IFCD0210 e IFCD0110 son muy demandados</strong> en el sector tecnológico español. 
+            Tienen convalidación directa en los módulos de técnico superior de desarrollo web y técnico medio de confección de páginas web, lo que los hace ideales para quienes buscan una formación rápida y efectiva para el empleo en el sector digital.
+            Estos certificados son la puerta de entrada perfecta para un futuro profesional en el desarrollo web, diseño web, UX/UI y otras áreas relacionadas con la creación y mantenimiento de sitios web.
           </div>
 
-          <div className="two">
-            <article className="card">
-              <h3>💼 Salidas IFCD0210</h3>
-              <ul>
-                <li><strong>Desarrollador/a Web Full-Stack</strong> (25.000-45.000€/año)</li>
-                <li><strong>Programador/a Frontend</strong> (22.000-38.000€/año)</li>
-                <li><strong>Desarrollador/a de Aplicaciones</strong> (28.000-50.000€/año)</li>
-                <li><strong>Técnico/a en Sistemas Web</strong> (20.000-35.000€/año)</li>
-                <li><strong>Freelance/Consultor Web</strong> (30-80€/hora)</li>
-              </ul>
-            </article>
-
-            <article className="card">
-              <h3>🌐 Salidas IFCD0110</h3>
-              <ul>
-                <li><strong>Diseñador/a Web</strong> (18.000-32.000€/año)</li>
-                <li><strong>Maquetador/a Web</strong> (20.000-30.000€/año)</li>
-                <li><strong>Especialista UX/UI</strong> (25.000-42.000€/año)</li>
-                <li><strong>Gestor/a de Contenidos Web</strong> (18.000-28.000€/año)</li>
-                <li><strong>Técnico/a en Marketing Digital</strong> (20.000-35.000€/año)</li>
-              </ul>
-            </article>
-          </div>
+         
 
           <details className="dd" style={{ marginTop: "1rem" }}>
             <summary>Sectores con mayor demanda</summary>
@@ -350,7 +326,7 @@ export default function Home() {
 
               <div className="callout warn">
                 <strong>Tendencia del mercado:</strong> La demanda de perfiles IFCD0210 e IFCD0110 ha crecido un 
-                340% en los últimos 3 años, especialmente en desarrollo frontend y aplicaciones web.
+                en los últimos 3 años, especialmente en desarrollo frontend y aplicaciones web.
               </div>
             </div>
           </details>
@@ -413,12 +389,7 @@ export default function Home() {
             >
               Comenzar Preparación IFCD
             </button>
-            <button 
-              className="btn" 
-              onClick={() => document.getElementById('certificados-profesionalidad')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Ver Certificados Completos
-            </button>
+            
           </div>
         </section>
 

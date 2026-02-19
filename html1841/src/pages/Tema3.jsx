@@ -154,7 +154,7 @@ export default function Tema3() {
 
       <figure className="media">
         <img
-          src="./img/etiqueta.png"
+          src="../img/etiqueta.png"
           alt="Representación conceptual del lenguaje HTML y su estructura"
           loading="lazy"
           decoding="async"

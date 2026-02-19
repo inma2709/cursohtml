@@ -8,6 +8,7 @@
 
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import SEOHead from "../components/SEOHead";
 
 
 export default function Tema1() {
@@ -149,7 +150,7 @@ export default function Tema1() {
 
             <figure className="media">
               <img
-                src="./img/tema1/principios.png"
+                src="../img/tema1/principios.png"
                 alt="Página de referencia sobre principios del diseño web"
                 loading="lazy"
                 decoding="async"
@@ -347,13 +348,13 @@ export default function Tema1() {
            
             <figure className="media">
               <img
-                src="./img/tema1/diseño.png"
+                src="../img/tema1/diseño .png"
                 alt="Página de referencia sobre principios del diseño web"
                 loading="lazy"
                 decoding="async"
               />
               <figcaption className="muted">
-                Imagen de apoyo: principios generales del diseño web .
+                Imagen de apoyo: patrones de diseño web .
               </figcaption>
             </figure>
           </div>
@@ -552,7 +553,7 @@ export default function Tema1() {
 
             <figure className="media">
               <img
-                src="./img/tema1/color.png"
+                src="../img/tema1/color.png"
                 alt="Referencia visual sobre el significado y efecto del color"
                 loading="lazy"
                 decoding="async"
@@ -590,7 +591,7 @@ export default function Tema1() {
 
             <figure className="media">
               <img
-                src="./img/tema1/tipografia.png"
+                src="../img/tema1/tipografia.png"
                 alt="Referencia visual sobre tipografía en diseño web"
                 loading="lazy"
                 decoding="async"
@@ -621,7 +622,7 @@ export default function Tema1() {
 
             <figure className="media">
               <img
-                src="./img/tema1/diseño .png"
+                src="../img/tema1/orden.png"
                 alt="Referencia visual sobre espaciado y composición"
                 loading="lazy"
                 decoding="async"
